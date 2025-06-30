@@ -964,3 +964,14 @@ document.querySelectorAll(".certificate-card").forEach((card) => {
     });
   });
 });
+// Mobile menu toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.createElement("button");
+  menuToggle.className = "mobile-menu-toggle";
+  menuToggle.innerHTML = "☰";
+  document.body.prepend(menuToggle);
+
+  menuToggle.addEventListener("click", () => {
+    document.body.classList.toggle("menu-open");
+  });
+});

@@ -3929,3 +3929,130 @@ body {
   margin-top: 1rem;
   text-align: center;
 }
+/* Mobile First Styles (applies to all screens) */
+body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+  
+  .content-section {
+    padding: 4rem 2rem;
+  }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  body {
+    font-size: 20px;
+  }
+  
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 767px) {
+  .netflix-title {
+    font-size: 2.5rem;
+    white-space: normal;
+  }
+  
+  .mode-selector {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .creator-profile {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+/* Education Timeline Mobile Fix */
+@media (max-width: 767px) {
+  .education-timeline::before {
+    left: 20px;
+  }
+  
+  .education-card {
+    padding-left: 3rem;
+  }
+  
+  .dna-helix {
+    flex-direction: column;
+  }
+}
+/* Episode Cards Mobile Fix */
+@media (max-width: 767px) {
+  .episode-card {
+    padding: 1rem;
+  }
+  
+  .confession-card {
+    padding: 1rem;
+  }
+  
+  .inline-meme {
+    max-width: 100% !important;
+  }
+}
+
+/* For both modes */
+button, .mode-btn, .meme-trigger {
+  min-height: 44px; /* Apple recommends at least 44x44px touch targets */
+  padding: 12px 24px;
+}
+
+/* Prevent zoom on form inputs */
+@media (max-width: 767px) {
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
+<!-- In both modes' head section -->
+<link rel="preload" href="styles.css" as="style">
+<link rel="preload" href="script.js" as="script">
+
+<!-- For critical above-the-fold CSS -->
+  /* Add minimal critical CSS here */
+.loading-screen, .hero {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+  }
+
+
+  
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--netflix-red);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  /* Hide desktop navigation when mobile menu exists */
+  .desktop-nav {
+    display: none;
+  }
+}
