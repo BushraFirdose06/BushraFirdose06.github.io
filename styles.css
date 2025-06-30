@@ -4056,3 +4056,267 @@ button, .mode-btn, .meme-trigger {
     display: none;
   }
 }
+
+/* Add to your existing CSS */
+@media (max-width: 768px) {
+  /* General content adjustments */
+  .content-section {
+    padding: 3rem 1rem;
+  }
+  
+  .season-title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  
+  /* Episode cards */
+  .episode-card {
+    padding: 1rem;
+  }
+  
+  .episode-title {
+    font-size: 1.3rem;
+  }
+  
+  .episode-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .stat-bubble {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  /* Confession cards */
+  .confession-card {
+    padding: 1rem;
+  }
+  
+  .confession-text {
+    font-size: 1rem;
+  }
+  
+  /* Skills section */
+  .skill-meter {
+    padding: 0.8rem;
+  }
+  
+  .skill-title {
+    font-size: 1.1rem;
+  }
+  
+  /* Meme images */
+  .inline-meme {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Struggle meter */
+  .emoji-track span {
+    font-size: 1.2rem;
+  }
+  
+  /* Contact section */
+  .unofficial-contact-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Even smaller devices */
+  .season-title {
+    font-size: 1.5rem;
+  }
+  
+  .episode-title {
+    font-size: 1.1rem;
+  }
+  
+  .confession-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .confession-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .savage-btn {
+    width: 100%;
+  }
+}
+
+.episode-card {
+  background: rgba(30, 30, 30, 0.9);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 5px solid var(--netflix-red);
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.episode-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.2);
+}
+
+.episode-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+.stat-bubble {
+  background: rgba(229, 9, 20, 0.2);
+  color: var(--netflix-white);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.blunder-list {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.blunder-list li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  list-style-type: none;
+}
+
+.blunder-list li:before {
+  content: " ";
+  position: absolute;
+  left: -1.5rem;
+}
+
+.meme-integration {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.meme-caption {
+  color: var(--netflix-gray);
+  font-style: italic;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.inline-meme {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid var(--netflix-red);
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.inline-meme:hover {
+  transform: scale(1.02);
+}
+.confession-card {
+  background: rgba(40, 40, 40, 0.9);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 5px solid var(--netflix-red);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.confession-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.2);
+}
+
+.confession-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.confession-number {
+  color: var(--netflix-red);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.2rem;
+}
+
+.confession-rating {
+  color: var(--netflix-white);
+  font-size: 1rem;
+}
+
+.confession-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+  color: var(--netflix-white);
+  font-family: "Netflix Sans", sans-serif;
+}
+
+.confession-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--netflix-gray);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.confession-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.savage-btn {
+  background: var(--netflix-red);
+  border: none;
+  color: var(--netflix-white);
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.savage-btn:hover {
+  background: var(--netflix-red-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--glow);
+}
+
+.savage-btn:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.savage-btn:hover:after {
+  left: 100%;
+}
+

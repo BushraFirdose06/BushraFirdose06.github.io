@@ -975,3 +975,128 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.toggle("menu-open");
   });
 });
+
+// Make sure this is in your script.js or add it
+document.addEventListener("DOMContentLoaded", function () {
+  // Handle confession card buttons
+  const confessionBtns = document.querySelectorAll(".confession-btn");
+
+  confessionBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const memeUrl = this.getAttribute("data-meme");
+      const memeContainer =
+        this.closest(".confession-card").querySelector(".confession-meme");
+
+      if (memeContainer.innerHTML === "") {
+        memeContainer.innerHTML = `<img src="${memeUrl}" class="inline-meme" style="max-width: 100%; margin-top: 1rem;">`;
+      } else {
+        memeContainer.innerHTML = "";
+      }
+
+      // Toggle active state
+      this.classList.toggle("active");
+    });
+  });
+
+  // Handle skill reveal buttons
+  const skillRevealBtns = document.querySelectorAll(".skill-reveal-btn");
+
+  skillRevealBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const skillMeme =
+        this.closest(".skill-meter").querySelector(".skill-meme");
+
+      if (
+        skillMeme.style.display === "none" ||
+        skillMeme.style.display === ""
+      ) {
+        skillMeme.style.display = "block";
+      } else {
+        skillMeme.style.display = "none";
+      }
+
+      // Toggle active state
+      this.classList.toggle("active");
+    });
+  });
+
+  // Struggle meter interaction
+  const ratingSlider = document.getElementById("unofficialRatingSlider");
+  const ratingOutput = document.getElementById("unofficialRatingOutput");
+  const statusMessage = ratingOutput.querySelector(".status-message");
+  const statusDetails = ratingOutput.querySelector(".status-details");
+  const generateFeedbackBtn = document.getElementById("generateFeedback");
+  const dynamicFeedback = document.getElementById("dynamicFeedback");
+
+  const struggleMessages = [
+    {
+      level: 0,
+      message: "Just installed VS Code",
+      details: "(Still figuring out how to exit Vim)",
+    },
+    { level: 20, message: "Hello World works!", details: "(Most of the time)" },
+    {
+      level: 40,
+      message: "The bugs are winning",
+      details: "(But you're putting up a good fight)",
+    },
+    {
+      level: 60,
+      message: "Professional Googler",
+      details: "(Stack Overflow contributor in training)",
+    },
+    {
+      level: 80,
+      message: "Code sometimes works",
+      details: "(When the planets align)",
+    },
+    {
+      level: 100,
+      message: "Senior Debugger",
+      details: "(Master of console.log)",
+    },
+  ];
+
+  const excuses = [
+    "It worked on my machine!",
+    "That's not a bug, it's a feature!",
+    "I was just following the documentation!",
+    "The compiler is clearly wrong about this",
+    "This code was written under duress",
+    "The requirements changed... last year",
+    "I'm pretty sure this is someone else's fault",
+    "That's not a bug, it's an undocumented feature",
+    "It's a hardware problem",
+    "You must have the wrong version",
+    "That behavior is by design",
+    "It's a known issue with the known issues list",
+    "That's not a bug, it's a design limitation",
+  ];
+
+  ratingSlider.addEventListener("input", function () {
+    const value = parseInt(this.value);
+    let message = "";
+    let details = "";
+
+    for (let i = 0; i < struggleMessages.length; i++) {
+      if (value >= struggleMessages[i].level) {
+        message = struggleMessages[i].message;
+        details = struggleMessages[i].details;
+      }
+    }
+
+    statusMessage.textContent = `You're at ${value}: ${message}`;
+    statusDetails.textContent = details;
+  });
+
+  generateFeedbackBtn.addEventListener("click", function () {
+    const randomExcuse = excuses[Math.floor(Math.random() * excuses.length)];
+    dynamicFeedback.textContent = `"${randomExcuse}"`;
+    dynamicFeedback.classList.remove("hidden");
+
+    // Hide after 5 seconds
+    setTimeout(() => {
+      dynamicFeedback.classList.add("hidden");
+    }, 5000);
+  });
+});
