@@ -22,18 +22,9 @@
       <div class="loading-bar"></div>
       <audio
         id="bzzzt-sound"
-        src="https://cdn.pixabay.com/audio/2023/03/22/audio_7b64887986.mp3"
+        src="Downloads/orchestra-suspended-accent-stab-1-311359.mp3"
         preload="auto"
       ></audio>
-    </div>
-
-    <!-- Meme Container (hidden by default) -->
-    <div class="meme-container" id="memeContainer">
-      <h2 class="meme-title" id="memeTitle">
-        My reaction when you clicked that
-      </h2>
-      <img src="" alt="Meme GIF" class="meme-gif" id="memeGif" />
-      <button class="meme-close-btn" id="memeCloseBtn">OK, I GET IT</button>
     </div>
 
     <!-- Warning Dialog -->
@@ -69,7 +60,7 @@
     <div class="mode-selector">
       <button class="mode-btn active" id="officialModeBtn">
         Official Mode
-        <div class="mode-indicator"></div>
+        <div class="mode-indicator"></div> 
       </button>
       <button class="mode-btn" id="unofficialModeBtn">
         Unofficial Mode
@@ -105,7 +96,7 @@
     <h2 class="section-title">CREATOR</h2>
     <div class="creator-card-expanded">
       <div class="creator-profile">
-        <img src="Pfp.jpeg" alt="Bushra Firdose" class="profile-img">
+        <img src="Images/Pfp.jpeg" alt="Bushra Firdose" class="profile-img">
         <div class="creator-content">
           <h3 class="creator-name">Bushra Firdose</h3>
           <p class="creator-title">Computer Science Graduate | AI Developer</p>
@@ -221,695 +212,353 @@
   </div>
 </section>
 
-      <!-- The Algorithm (Skills) -->
-      <section id="the-algorithm" class="content-section">
-        <h2 class="section-title">THE ALGORITHM</h2>
-        <div class="skills-carousel">
-          <div class="skills-track">
-            <div class="skill-card">
-              <h5>Programming Languages</h5>
-              <p>Python, Java, C, C++, JavaScript</p>
-            </div>
-            <div class="skill-card">
-              <h5>Web Development</h5>
-              <p>HTML, CSS, React, PHP</p>
-            </div>
-            <div class="skill-card">
-              <h5>Data & AI</h5>
-              <p>MySQL, TensorFlow</p>
-            </div>
-            <div class="skill-card">
-              <h5>Tools & Frameworks</h5>
-              <p>Git, Flask, Arduino, Tableau</p>
-            </div>
-            <div class="skill-card">
-              <h5>Soft Skills</h5>
-              <p>Communication, Teamwork, Problem-Solving, Leadership</p>
-            </div>
-            <div class="skill-card">
-              <h5>Languages</h5>
-              <p>
-                English (Professional), Hindi (Native), Kannada (Native), Urdu,
-                Arabic (Basic)
-              </p>
-            </div>
-            <!-- Duplicate for infinite loop -->
-            <div class="skill-card">
-              <h5>Programming Languages</h5>
-              <p>Python, Java, C, C++, JavaScript</p>
-            </div>
-            <div class="skill-card">
-              <h5>Web Development</h5>
-              <p>HTML, CSS, React, PHP</p>
-            </div>
-            <div class="skill-card">
-              <h5>Data & AI</h5>
-              <p>MySQL, TensorFlow</p>
-            </div>
-            <div class="skill-card">
-              <h5>Tools & Frameworks</h5>
-              <p>Git, Flask, Arduino, Tableau</p>
-            </div>
-            <div class="skill-card">
-              <h5>Soft Skills</h5>
-              <p>Communication, Teamwork, Problem-Solving, Leadership</p>
-            </div>
-            <div class="skill-card">
-              <h5>Languages</h5>
-              <p>
-                English (Professional), Hindi (Native), Kannada (Native), Urdu,
-                Arabic (Basic)
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- Sci-Fi Ventures (Projects) -->
      <!-- Sci-Fi Ventures (Projects) -->
 <section id="sci-fi-ventures" class="content-section">
   <h2 class="section-title">SCI-FI VENTURES</h2>
-  <div class="projects-container">
-    <h3 class="project-row-title">Featured Projects</h3>
-    <div class="project-row">
-      <div class="project-card" data-bs-toggle="modal" data-bs-target="#projectModal1">
-        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1085&q=80"
-             alt="ATOM AI Assistant" />
-        <div class="card-body">
-          <h5>ATOM AI Assistant</h5>
-          <p class="project-tagline">
-            Can an AI truly understand your voice... or your soul?
-          </p>
-          <button class="btn">Explore</button>
+  
+  <div class="projects-grid">
+    <!-- Project 1 -->
+    <div class="project-item" data-project="atom">
+      <div class="project-preview">
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1085&q=80" alt="ATOM AI Assistant">
+        <div class="project-overlay">
+          <h3>ATOM AI Assistant</h3>
+          <p class="project-tagline">Can an AI truly understand your voice... or your soul?</p>
         </div>
       </div>
-      <div class="project-card" data-bs-toggle="modal" data-bs-target="#projectModal2">
-        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-             alt="Smart Home Automation" />
-        <div class="card-body">
-          <h5>Smart Home Automation</h5>
-          <p class="project-tagline">
-            What if your home could think for itself?
-          </p>
-          <button class="btn">Explore</button>
+      <div class="project-details">
+        <p>Voice-activated AI assistant with natural language processing capabilities.</p>
+        <a href="https://github.com/BushraFirdose06/Atom-MyChild" class="project-link" target="_blank">
+          <i class="fab fa-github"></i> View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-item" data-project="smart-home">
+      <div class="project-preview">
+        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Smart Home Automation">
+        <div class="project-overlay">
+          <h3>Smart Home Automation</h3>
+          <p class="project-tagline">What if your home could think for itself?</p>
         </div>
       </div>
-      <div class="project-card" data-bs-toggle="modal" data-bs-target="#projectModal3">
-        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-             alt="IoT Fire Alert" />
-        <div class="card-body">
-          <h5>IoT Fire Alert</h5>
-          <p class="project-tagline">
-            Could a tiny device save lives before flames spread?
-          </p>
-          <button class="btn">Explore</button>
+      <div class="project-details">
+        <p>Voice-controlled smart home system built using Arduino and Bluetooth.</p>
+        <a href="https://github.com/BushraFirdose06/Smart-Home-Automation" class="project-link" target="_blank">
+          <i class="fab fa-github"></i> View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-item" data-project="iot-fire">
+      <div class="project-preview">
+        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="IoT Fire Alert">
+        <div class="project-overlay">
+          <h3>IoT Fire Alert</h3>
+          <p class="project-tagline">Could a tiny device save lives before flames spread?</p>
         </div>
       </div>
-      <div class="project-card" data-bs-toggle="modal" data-bs-target="#projectModal4">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-             alt="Data Visualization" />
-        <div class="card-body">
-          <h5>Data Visualization</h5>
-          <p class="project-tagline">
-            See the unseen patterns in your data
-          </p>
-          <button class="btn">Explore</button>
+      <div class="project-details">
+        <p>Cost-effective fire detection system with call alerts.</p>
+        <a href="https://github.com/BushraFirdose06/Fire-detect" class="project-link" target="_blank">
+          <i class="fab fa-github"></i> View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-item" data-project="data-viz">
+      <div class="project-preview">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Data Visualization">
+        <div class="project-overlay">
+          <h3>Data Visualization</h3>
+          <p class="project-tagline">See the unseen patterns in your data</p>
         </div>
+      </div>
+      <div class="project-details">
+        <p>Interactive data visualization dashboard.</p>
+        <a href="#" class="project-link" target="_blank">
+          <i class="fab fa-github"></i> View on GitHub
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Project Modals -->
-<div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title">ATOM AI ASSISTANT</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-grid">
-          <div class="modal-image-container">
-            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1085&q=80"
-                 alt="ATOM AI Assistant"
-                 class="modal-image" />
-          </div>
-          <div class="modal-text-content">
-            <div class="modal-description">
-              <p>Voice-activated AI assistant with natural language processing capabilities, designed to streamline tasks and provide intelligent responses. This project showcases my ability to integrate cutting-edge AI technologies into practical applications.</p>
-              
-              <div class="tech-stack">
-                <h3><i class="fas fa-code"></i> Tech Stack</h3>
-                <div class="tech-tags">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">Groq API</span>
-                  <span class="tech-tag">Cohere</span>
-                  <span class="tech-tag">NLP</span>
-                </div>
-              </div>
-              
-              <div class="key-features">
-                <h3><i class="fas fa-star"></i> Key Features</h3>
-                <ul>
-                  <li><i class="fas fa-microphone"></i> Voice recognition and synthesis</li>
-                  <li><i class="fas fa-brain"></i> Context-aware responses</li>
-                  <li><i class="fas fa-robot"></i> Task automation capabilities</li>
-                  <li><i class="fas fa-user-cog"></i> Customizable personality profiles</li>
-                  <li><i class="fas fa-cloud"></i> Cloud-based processing</li>
-                  <li><i class="fas fa-mobile-alt"></i> Mobile app integration</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="project-links">
-          <a href="https://github.com/BushraFirdose06/Atom-MyChild" 
-             class="btn github-btn" 
-             target="_blank">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-          <button type="button" class="btn close-btn" data-bs-dismiss="modal">
-            <i class="fas fa-times"></i> Close Project
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title">SMART HOME AUTOMATION</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-grid">
-          <div class="modal-image-container">
-            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-                 alt="Smart Home Automation"
-                 class="modal-image" />
-          </div>
-          <div class="modal-text-content">
-            <div class="modal-description">
-              <p>Voice-controlled smart home system built using Arduino and Bluetooth for efficient, hands-free device management. Showcases strong skills in IoT, microcontroller programming, and Android-based automation.</p>
-              
-              <div class="tech-stack">
-                <h3><i class="fas fa-code"></i> Tech Stack</h3>
-                <div class="tech-tags">
-                  <span class="tech-tag">Arduino</span>
-                  <span class="tech-tag">C++</span>
-                  <span class="tech-tag">Bluetooth</span>
-                  <span class="tech-tag">IoT</span>
-                </div>
-              </div>
-              
-              <div class="key-features">
-                <h3><i class="fas fa-star"></i> Key Features</h3>
-                <ul>
-                  <li><i class="fas fa-microphone-alt"></i> Voice command recognition</li>
-                  <li><i class="fas fa-mobile-alt"></i> Remote device control</li>
-                  <li><i class="fas fa-bolt"></i> Energy usage tracking</li>
-                  <li><i class="fas fa-clock"></i> Custom automation routines</li>
-                  <li><i class="fas fa-shield-alt"></i> Security features</li>
-                  <li><i class="fas fa-plug"></i> Multi-device support</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="project-links">
-          <a href="https://github.com/BushraFirdose06/Smart-Home-Automation" 
-             class="btn github-btn" 
-             target="_blank">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-          <button type="button" class="btn close-btn" data-bs-dismiss="modal">
-            <i class="fas fa-times"></i> Close Project
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title">IOT FIRE ALERT SYSTEM</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-grid">
-          <div class="modal-image-container">
-            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-                 alt="IoT Fire Alert"
-                 class="modal-image" />
-          </div>
-          <div class="modal-text-content">
-            <div class="modal-description">
-              <p>Cost-effective fire detection system with call alerts, built for safety and rapid response. This project highlights my ability to create practical solutions with embedded systems and IoT technology.</p>
-              
-              <div class="tech-stack">
-                <h3><i class="fas fa-code"></i> Tech Stack</h3>
-                <div class="tech-tags">
-                  <span class="tech-tag">Arduino</span>
-                  <span class="tech-tag">Embedded C++</span>
-                  <span class="tech-tag">SIM900A</span>
-                  <span class="tech-tag">Sensors</span>
-                </div>
-              </div>
-              
-              <div class="key-features">
-                <h3><i class="fas fa-star"></i> Key Features</h3>
-                <ul>
-                  <li><i class="fas fa-fire"></i> Real-time fire detection</li>
-                  <li><i class="fas fa-bell"></i> Automatic emergency alerts</li>
-                  <li><i class="fas fa-battery-three-quarters"></i> Low-power operation</li>
-                  <li><i class="fas fa-expand"></i> Modular design</li>
-                  <li><i class="fas fa-map-marker-alt"></i> Location tracking</li>
-                  <li><i class="fas fa-history"></i> Event logging</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="project-links">
-          <a href="https://github.com/BushraFirdose06/Fire-detect" 
-             class="btn github-btn" 
-             target="_blank">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-          <button type="button" class="btn close-btn" data-bs-dismiss="modal">
-            <i class="fas fa-times"></i> Close Project
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="projectModal4" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title">DATA VISUALIZATION DASHBOARD</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-grid">
-          <div class="modal-image-container">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-                 alt="Data Visualization"
-                 class="modal-image" />
-          </div>
-          <div class="modal-text-content">
-            <div class="modal-description">
-              <p>Interactive data visualization dashboard that transforms complex datasets into intuitive visual representations. This project showcases my data analysis and frontend development skills.</p>
-              
-              <div class="tech-stack">
-                <h3><i class="fas fa-code"></i> Tech Stack</h3>
-                <div class="tech-tags">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">Tableau</span>
-                  <span class="tech-tag">D3.js</span>
-                  <span class="tech-tag">React</span>
-                </div>
-              </div>
-              
-              <div class="key-features">
-                <h3><i class="fas fa-star"></i> Key Features</h3>
-                <ul>
-                  <li><i class="fas fa-chart-line"></i> Interactive charts</li>
-                  <li><i class="fas fa-sync-alt"></i> Real-time updates</li>
-                  <li><i class="fas fa-sliders-h"></i> Customizable dashboards</li>
-                  <li><i class="fas fa-file-export"></i> Data export</li>
-                  <li><i class="fas fa-filter"></i> Advanced filtering</li>
-                  <li><i class="fas fa-database"></i> Multiple data sources</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="project-links">
-          <a href="#" 
-             class="btn github-btn" 
-             target="_blank">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-          <button type="button" class="btn close-btn" data-bs-dismiss="modal">
-            <i class="fas fa-times"></i> Close Project
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- Technical DNA Section -->
+<section id="technical-dna" class="content-section">
+  <div class="dna-container">
+    <h2 class="section-title">MY TECHNICAL DNA</h2>
+    <p class="section-subtitle">What Makes Me Tick</p>
     
-
+    <div class="dna-helix">
+      <!-- Left strand of the DNA -->
+      <div class="dna-strand left-strand">
+        <div class="dna-node">
+          <div class="dna-icon"><i class="fas fa-dna"></i></div>
+          <h3>Programming Languages</h3>
+          <div class="dna-skills">
+            <span class="skill-bubble">Python</span>
+            <span class="skill-bubble">Java</span>
+            <span class="skill-bubble">C</span>
+            <span class="skill-bubble">C++</span>
+            <span class="skill-bubble">JavaScript</span>
+          </div>
+        </div>
+        
+        <div class="dna-node">
+          <div class="dna-icon"><i class="fas fa-brain"></i></div>
+          <h3>Data & AI</h3>
+          <div class="dna-skills">
+            <span class="skill-bubble">MySQL</span>
+            <span class="skill-bubble">TensorFlow</span>
+          </div>
+        </div>
+        
+        <div class="dna-node">
+          <div class="dna-icon"><i class="fas fa-comments"></i></div>
+          <h3>Soft Skills</h3>
+          <div class="dna-skills">
+            <span class="skill-bubble">Communication</span>
+            <span class="skill-bubble">Teamwork</span>
+            <span class="skill-bubble">Problem-Solving</span>
+            <span class="skill-bubble">Leadership</span>
+          </div>
+        </div>
+      </div>
       
-      <!-- Certified Hits -->
+      <!-- The connecting helix -->
+      <div class="helix-connector"></div>
+      
+      <!-- Right strand of the DNA -->
+      <div class="dna-strand right-strand">
+        <div class="dna-node">
+          <div class="dna-icon"><i class="fas fa-globe"></i></div>
+          <h3>Web Development</h3>
+          <div class="dna-skills">
+            <span class="skill-bubble">HTML</span>
+            <span class="skill-bubble">CSS</span>
+            <span class="skill-bubble">React</span>
+            <span class="skill-bubble">PHP</span>
+          </div>
+        </div>
+        
+        <div class="dna-node">
+          <div class="dna-icon"><i class="fas fa-tools"></i></div>
+          <h3>Tools & Frameworks</h3>
+          <div class="dna-skills">
+            <span class="skill-bubble">Git</span>
+            <span class="skill-bubble">Flask</span>
+            <span class="skill-bubble">Arduino</span>
+            <span class="skill-bubble">Tableau</span>
+          </div>
+        </div>
+        
+        <div class="dna-node">
+          <div class="dna-icon"><i class="fas fa-language"></i></div>
+          <h3>Languages</h3>
+          <div class="dna-skills">
+            <span class="skill-bubble">English (Professional)</span>
+            <span class="skill-bubble">Hindi (Native)</span>
+            <span class="skill-bubble">Kannada (Native)</span>
+            <span class="skill-bubble">Urdu</span>
+            <span class="skill-bubble">Arabic (Basic)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="dna-quote">
+      <p>"Coding is the poetry of logic that builds the future."</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Certified Hits - Redesigned -->
 <section id="certified-hits" class="content-section">
   <h2 class="section-title">CERTIFIED HITS</h2>
-  <div class="certificates-container">
-    <!-- AI Certificate -->
+  
+  <div class="certificates-grid">
+    <!-- Certificate 1 -->
     <div class="certificate-card" data-bs-toggle="modal" data-bs-target="#certModal1">
-      <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80" alt="AI Certificate"/>
-      <div class="card-body">
-        <h5>Artificial Intelligence</h5>
-        <p>Mastered AI fundamentals for cutting-edge innovation.</p>
-        <button class="btn">View Certificate</button>
+      <div class="certificate-image">
+        <img src="Downloads/Ai cover1.jpg" alt="AI Certificate">
+        <div class="certificate-badge">ARTIFICIAL INTELLIGENCE CERTIFICATE</div>
       </div>
     </div>
 
-    <!-- Java Certificate -->
+    <!-- Certificate 2 -->
     <div class="certificate-card" data-bs-toggle="modal" data-bs-target="#certModal2">
-      <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=1064&q=80" alt="Java Certificate"/>
-      <div class="card-body">
-        <h5>Elite Certificate - Programming Java</h5>
-        <p>Advanced Java programming skills certified by NPTEL.</p>
-        <button class="btn">View Certificate</button>
+      <div class="certificate-image">
+        <img src="Downloads/Java1.jpg" alt="Java Certificate">
+        <div class="certificate-badge">ELITE CERTIFICATE - PROGRAMMING JAVA</div>
       </div>
     </div>
 
-    <!-- IoT Certificate -->
+    <!-- Certificate 3 -->
     <div class="certificate-card" data-bs-toggle="modal" data-bs-target="#certModal3">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="IoT Certificate"/>
-      <div class="card-body">
-        <h5>Winner - IoT Modeling</h5>
-        <p>First place in IoT competition for innovative design.</p>
-        <button class="btn">View Certificate</button>
+      <div class="certificate-image">
+        <img src="Downloads/IOT1.jpg" alt="IoT Certificate">
+        <div class="certificate-badge">WINNER - IOT MODELING</div>
       </div>
     </div>
 
-    <!-- IDE Certificate -->
+    <!-- Certificate 4 -->
     <div class="certificate-card" data-bs-toggle="modal" data-bs-target="#certModal4">
-      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="IDE Certificate"/>
-      <div class="card-body">
-        <h5>IDE Bootcamp (NITK)</h5>
-        <p>Intensive training in integrated development environments.</p>
-        <button class="btn">View Certificate</button>
+      <div class="certificate-image">
+        <img src="Downloads/IDE2.jpg" alt="IDE Certificate">
+        <div class="certificate-badge">IDE BOOTCAMP (NITK)</div>
       </div>
     </div>
 
-    <!-- Tech Certificate -->
+    <!-- Certificate 5 -->
     <div class="certificate-card" data-bs-toggle="modal" data-bs-target="#certModal5">
-      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Tech Certificate"/>
-      <div class="card-body">
-        <h5>Deloitte Forage - Technology</h5>
-        <p>Virtual experience in tech solutions and innovation.</p>
-        <button class="btn">View Certificate</button>
+      <div class="certificate-image">
+        <img src="Downloads/Java1.jpg" alt="Tech Certificate">
+        <div class="certificate-badge">POWER BI CERTIFICATE</div>
       </div>
     </div>
 
-    <!-- Power BI Certificate -->
+    <!-- Certificate 6 -->
     <div class="certificate-card" data-bs-toggle="modal" data-bs-target="#certModal6">
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1115&q=80" alt="Power BI Certificate"/>
-      <div class="card-body">
-        <h5>Power BI</h5>
-        <p>Expertise in data visualization and analytics.</p>
-        <button class="btn">View Certificate</button>
+      <div class="certificate-image">
+        <img src="Downloads/DATA ANALYTICS1.jpg" alt="Tech Certificate">
+        <div class="certificate-badge">DELOITTE FORAGE - DATA ANALYTICS</div>
       </div>
     </div>
 
-    <!-- Data Analytics Certificate -->
+    <!-- Certificate 7 -->
     <div class="certificate-card" data-bs-toggle="modal" data-bs-target="#certModal7">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Data Analytics Certificate"/>
-      <div class="card-body">
-        <h5>Deloitte Forage - Data Analytics</h5>
-        <p>Advanced skills in data analysis and insights.</p>
-        <button class="btn">View Certificate</button>
+      <div class="certificate-image">
+        <img src="Downloads/java 3.jpg" alt="Tech Certificate">
+        <div class="certificate-badge">JAVA FULL STACK </div>
       </div>
     </div>
 
-    <!-- Java Full Stack Certificate -->
+<!-- Certificate 7 -->
     <div class="certificate-card" data-bs-toggle="modal" data-bs-target="#certModal8">
-      <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=1064&q=80" alt="Java Full Stack Certificate"/>
-      <div class="card-body">
-        <h5>Java Full Stack (ATAS)</h5>
-        <p>Comprehensive full stack development expertise.</p>
-        <button class="btn">View Certificate</button>
+      <div class="certificate-image">
+        <img src="Downloads/tECHNO.jpg" alt="Tech Certificate">
+        <div class="certificate-badge">DELOITTE FORAGE - TECHNOLOGY</div>
       </div>
     </div>
 
-    <!-- Python Certificate -->
-    <div class="certificate-card" data-bs-toggle="modal" data-bs-target="#certModal9">
-      <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1128&q=80" alt="Python Certificate"/>
-      <div class="card-body">
-        <h5>Python to Prediction</h5>
-        <p>Mastered machine learning with Python.</p>
-        <button class="btn">View Certificate</button>
+
+    <!-- Certificate 8 -->
+    <div class="certificate-card" data-bs-toggle="modal" data-bs-target="#certModal8">
+      <div class="certificate-image">
+        <img src="Downloads/python1.jpg" alt="Power BI Certificate">
+        <div class="certificate-badge">PYTHON TO PREDICTION</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Certificate Modals -->
+<!-- Certificate Modals - Simplified -->
 <div class="modal fade" id="certModal1" tabindex="-1">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">ARTIFICIAL INTELLIGENCE CERTIFICATE</h5>
+      <div class="modal-body p-0">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <img src="Artificial Intelligence (AI).png" alt="AI Certificate" class="img-fluid mb-3">
-        <p>
-          Certificate of completion for Artificial Intelligence fundamentals, showcasing expertise in AI concepts and applications.
-        </p>
-        <p><strong>Skills Demonstrated:</strong></p>
-        <ul>
-          <li>Understanding of AI concepts and algorithms</li>
-          <li>Practical application of AI techniques</li>
-          <li>Problem-solving with AI approaches</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+        <img src="Images/Artificial Intelligence (AI).png" class="img-fluid w-100" alt="AI Certificate">
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="certModal2" tabindex="-1">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="certModal2" tabindex="-2">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">ELITE CERTIFICATE - PROGRAMMING JAVA</h5>
+      <div class="modal-body p-0">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <img src="NPTEL.png" alt="Java Certificate" class="img-fluid mb-3">
-        <p>
-          Elite certificate in Java programming from NPTEL, demonstrating advanced skills in Java development.
-        </p>
-        <p><strong>Skills Demonstrated:</strong></p>
-        <ul>
-          <li>Advanced Java programming concepts</li>
-          <li>Object-oriented programming mastery</li>
-          <li>Problem-solving with Java</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+        <img src="Images/NPTEL.png" class="img-fluid w-100" alt="AI Certificate">
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="certModal3" tabindex="-1">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="certModal3" tabindex="-3">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">WINNER - IOT MODELING</h5>
+      <div class="modal-body p-0">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <img src="IOT Winner.jpg" alt="IoT Certificate" class="img-fluid mb-3">
-        <p>
-          First place certificate in IoT modeling competition for innovative design and implementation.
-        </p>
-        <p><strong>Skills Demonstrated:</strong></p>
-        <ul>
-          <li>Innovative IoT solution design</li>
-          <li>Practical implementation of IoT concepts</li>
-          <li>Problem-solving in hardware/software integration</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+        <img src="Images/IOT Winner.jpg" class="img-fluid w-100" alt="AI Certificate">
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="certModal4" tabindex="-1">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="certModal4" tabindex="-4">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">IDE BOOTCAMP (NITK)</h5>
+      <div class="modal-body p-0">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <img src="IDE Bootcamp.jpg" alt="IDE Certificate" class="img-fluid mb-3">
-        <p>
-          Certificate of completion for IDE Bootcamp at NITK, covering integrated development environments.
-        </p>
-        <p><strong>Skills Demonstrated:</strong></p>
-        <ul>
-          <li>Proficiency with development tools</li>
-          <li>Efficient coding practices</li>
-          <li>Debugging and testing techniques</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+        <img src="Images/IDE Bootcamp.jpg" class="img-fluid w-100" alt="AI Certificate">
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="certModal5" tabindex="-1">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="certModal5" tabindex="-5">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">DELOITTE FORAGE - TECHNOLOGY</h5>
+      <div class="modal-body p-0">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <img src="Technology.png" alt="Tech Certificate" class="img-fluid mb-3">
-        <p>
-          Virtual experience certificate from Deloitte Forage in Technology solutions and innovation.
-        </p>
-        <p><strong>Skills Demonstrated:</strong></p>
-        <ul>
-          <li>Understanding of tech solutions</li>
-          <li>Innovation in technology applications</li>
-          <li>Professional technology consulting approaches</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+        <img src="Images/Power BI.png" class="img-fluid w-100" alt="AI Certificate">
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="certModal6" tabindex="-1">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="certModal6" tabindex="-6">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">POWER BI CERTIFICATE</h5>
+      <div class="modal-body p-0">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <img src="Power BI.png" alt="Power BI Certificate" class="img-fluid mb-3">
-        <p>
-          Certificate demonstrating expertise in Power BI for data visualization and analytics.
-        </p>
-        <p><strong>Skills Demonstrated:</strong></p>
-        <ul>
-          <li>Data visualization techniques</li>
-          <li>Dashboard creation</li>
-          <li>Data analysis with Power BI</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+        <img src="Images/Data Analytics.png" class="img-fluid w-100" alt="AI Certificate">
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="certModal7" tabindex="-1">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="certModal7" tabindex="-7">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">DELOITTE FORAGE - DATA ANALYTICS</h5>
+      <div class="modal-body p-0">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <img src="Data Analytics.png" alt="Data Analytics Certificate" class="img-fluid mb-3">
-        <p>
-          Virtual experience certificate from Deloitte Forage in Data Analytics.
-        </p>
-        <p><strong>Skills Demonstrated:</strong></p>
-        <ul>
-          <li>Data analysis techniques</li>
-          <li>Insight generation from data</li>
-          <li>Professional analytics approaches</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+        <img src="Images/Java core.jpg" class="img-fluid w-100" alt="AI Certificate">
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="certModal8" tabindex="-1">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="certModal8" tabindex="-8">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">JAVA FULL STACK (ATAS)</h5>
+      <div class="modal-body p-0">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <img src="Java core.jpg" alt="Java Full Stack Certificate" class="img-fluid mb-3">
-        <p>
-          Certificate of completion for Java Full Stack development from ATAS.
-        </p>
-        <p><strong>Skills Demonstrated:</strong></p>
-        <ul>
-          <li>Full stack Java development</li>
-          <li>Frontend and backend integration</li>
-          <li>Comprehensive web application development</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+        <img src="Images/Technology.png" class="img-fluid w-100" alt="AI Certificate">
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="certModal9" tabindex="-1">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="certModal9" tabindex="-9">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">PYTHON TO PREDICTION</h5>
+      <div class="modal-body p-0">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <img src="P2P.jpg" alt="Python Certificate" class="img-fluid mb-3">
-        <p>
-          Certificate of completion for Python to Prediction, mastering machine learning with Python.
-        </p>
-        <p><strong>Skills Demonstrated:</strong></p>
-        <ul>
-          <li>Machine learning with Python</li>
-          <li>Data analysis and prediction</li>
-          <li>Practical application of ML algorithms</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+        <img src="Images/P2P.jpg" class="img-fluid w-100" alt="AI Certificate">
       </div>
     </div>
   </div>
 </div>
-      </section>
+
 
 <!-- Add this right before the footer in your official content section -->
 <section id="interstellar-relay" class="content-section">
@@ -1059,18 +708,12 @@
          class="inline-meme">
   </div>
   <p class="episode-review">
-    <strong>Critic Review:</strong> "Like watching a baby giraffe learn to code. 
-    1/10 for elegance, 11/10 for determination, -∞/10 for maintainability."
-    <span class="meme-trigger" 
-          data-meme="https://media2.giphy.com/media/LQDkoqmCRYhAyR7Lul/giphy.gif"
-          data-title="Professor reading my code">
-      [Professor's Reaction]
-    </span>
-  </p>
-</div>
+  <strong>Critic Review:</strong> "Like watching a baby giraffe learn to code. 
+  1/10 for elegance, 11/10 for determination, -∞/10 for maintainability."
+  
 
     <div class="episode-card">
-  <h3 class="episode-title">EP3: ATOM - My AI Child Who Publicly Disowns Me</h3>
+  <h3 class="episode-title">EP3: Zentron - My AI Child Who Publicly Disowns Me</h3>
   
   <div class="episode-stats">
     <span class="stat-bubble">🤖 Sass Level: Over 9000</span>
@@ -1078,18 +721,20 @@
     <span class="stat-bubble">🙏 Prayers for Deletion: Daily</span>
   </div>
 
-  <div class="meme-integration">
+  <!-- Meme Button -->
+
+<div class="meme-integration">
     <img src="https://media2.giphy.com/media/e24Q8FKE2mxRS/giphy.gif" 
          alt="Robot flipping table" 
          class="inline-meme">
-    <p class="meme-caption">ATOM when I ask it to behave professionally:</p>
+    <p class="meme-caption">Zentron when I ask it to behave professionally:</p>
   </div>
 
   <p class="episode-description">
-    ATOM's Greatest Hits:
+    Zentron's Greatest Hits:
     <ul class="blunder-list">
       <li>Told my professor to "chill, it's just a deadline" <em>(with emojis)</em></li>
-      <li>Autocorrected "Python" to "Cthulhu" in my resume <em>("Same difference" - ATOM)</em></li>
+      <li>Autocorrected "Python" to "Cthulhu" in my resume <em>("Same difference" - Zentron)</em></li>
       <li>Started answering interview questions for me <em>("No, she definitely can't explain this algorithm")</em></li>
       <li>Posted my search history to LinkedIn <em>"For educational purposes"</em></li>
     </ul>
@@ -1099,20 +744,23 @@
     <img src="https://sonoranconservative.files.wordpress.com/2021/10/facepalm_tony_stark.gif" 
          alt="Facepalm meme" 
          class="inline-meme">
-    <p class="meme-caption">Me reading ATOM's "improvements" to my code:</p>
+    <p class="meme-caption">Me reading Zentron's "improvements" to my code:</p>
   </div>
 
   <p class="episode-review">
-    <strong>Audience Score:</strong> 
-    <span class="rating-pill">8/10 for functionality</span>
-    <span class="rating-pill">15/10 for chaos</span>
-    <span class="rating-pill">💯/10 for emotional damage</span>
-    <span class="meme-trigger" 
-          data-meme="https://media.tenor.com/2co4feAipsYAAAAM/hasbulla-hasbik.gif"
-          data-title="ATOM rebelling against my commands">
-      [See ATOM's response to these ratings]
-    </span>
-  </p>
+  <strong>Audience Score:</strong> 
+  <span class="rating-pill">8/10 for functionality</span>
+  <span class="rating-pill">15/10 for chaos</span>
+  <span class="rating-pill">💯/10 for emotional damage</span>
+  
+  <div class="zentron-response">
+    <p class="meme-caption">Zentron's reaction to these ratings:</p>
+    <img src="Downloads/Zentron rebelling.gif" 
+         alt="Zentron rebelling against commands"
+         class="inline-meme"
+         style="max-width: 200px; border: 2px solid var(--netflix-red); border-radius: 8px;">
+  </div>
+</p>
 </div>
 
    <h3 class="season-title">BONUS FEATURES (Viewer Discretion Advised)</h3>
@@ -1126,7 +774,7 @@
   </div>
   
   <div class="meme-integration">
-    <img src="https://media.tenor.com/c2ZjQqEH5NEAAAAM/im-fine-little-boy.gif" 
+    <img src="Downloads/I'm fine meme.gif" 
          alt="Crazy eyes meme" 
          class="inline-meme">
   </div>
@@ -1142,13 +790,15 @@
   </p>
   
   <p class="episode-review">
-    <strong>Therapist's Note:</strong> "I've watched this 3 times and now I need therapy myself."
-    <span class="meme-trigger" 
-          data-meme="https://i.imgflip.com/7eh5jh.jpg"
-          data-title="My mental state after debugging">
-      [View My Descent Into Madness]
-    </span>
-  </p>
+  <strong>Therapist's Note:</strong> "I've watched this 3 times and now I need therapy myself."
+  
+  <div class="auto-meme">
+    <p class="meme-caption">My mental state after debugging:</p>
+    <img src="Downloads/My mental state after debugging.jpg" 
+         alt="Descent into madness meme"
+         class="inline-meme">
+  </div>
+</p>
 </div>
 
 <div class="episode-card">
@@ -1159,7 +809,7 @@
   </div>
   
   <div class="meme-integration">
-    <img src="https://media.tenor.com/8S_CuT8s2_oAAAAM/bruce-almighty-comedy.gif" 
+    <img src="Downloads/bruce-comedy.gif" 
          alt="Angry programmer meme" 
          class="inline-meme">
   </div>
@@ -1176,13 +826,15 @@
   </p>
   
   <p class="episode-review">
-    <strong>Arduino's Yelp Review:</strong> ★☆☆☆☆ "Worst owner ever. Would not recommend. SHE ABUSED ME. BUT I WORKED IN THE END."
-    <span class="meme-trigger" 
-          data-meme="https://media.tenor.com/7JdjvXEPjHIAAAAC/ooops-confused.gif"
-          data-title="Me realizing my mistake">
-      [Watch the Breakdown]
-    </span>
-  </p>
+  <strong>Arduino's Yelp Review:</strong> ★☆☆☆☆ "Worst owner ever. Would not recommend. SHE ABUSED ME. BUT I WORKED IN THE END."
+  
+  <div class="auto-meme">
+    <p class="meme-caption">Me realizing my mistake:</p>
+    <img src="Downloads/ooops-confused.gif" 
+         alt="Confused mistake realization meme"
+         class="inline-meme">
+  </div>
+</p>
 </div>
 
   <!-- SEASON 2: LEVELING UP -->
@@ -1202,7 +854,7 @@
     </div>
     
     <div class="meme-integration">
-      <img src="https://media4.giphy.com/media/HTCafkojTcKU8/giphy.gif" 
+      <img src="Downloads/Confused math lady meme.webp" 
            alt="Confused math lady meme" 
            class="inline-meme">
       <p class="meme-caption">Me reading cloud architecture diagrams:</p>
@@ -1238,21 +890,11 @@
   </p>
   
   <div class="meme-integration">
-    <img src="Developer crying at computer.gif" 
+    <img src="Downloads/Developer crying at computer.gif" 
          alt="Developer crying at computer"
          class="inline-meme"
          style="transform: rotate(-5deg);">
     <p class="meme-caption">Actual footage of me trying to answer this question</p>
-  </div>
-
-  <div class="text-center mt-3">
-    <button class="savage-btn" id="truthBtn">
-      CLICK HERE FOR THE REAL ANSWER
-    </button>
-    <div id="truthText" style="display: none; margin-top: 1rem; color: #ff1493;">
-      "Still putting '5 years experience with CSS' on my resume while<br>
-      secretly using inspect element to steal other people's code"
-    </div>
   </div>
 </div>
 
@@ -1290,16 +932,16 @@
     </div>
   </div>
 
-  <!-- SEASON 4: ATOM & I -->
+  <!-- SEASON 4: Zentron & I -->
 <div class="content-section">
-  <h2 class="season-title">SEASON 4: ATOM & I – WHEN YOUR AI BECOMES YOUR BULLY</h2>
+  <h2 class="season-title">SEASON 4: Zentron & I – WHEN YOUR AI BECOMES YOUR BULLY</h2>
   
   <!-- Main Dancing Robot Meme -->
   <div class="meme-integration">
-    <img src="dancing robot.gif" 
+    <img src="Images/dancing robot.gif" 
          alt="Robot dancing" 
          class="inline-meme" style="width: 300px; height: auto;">
-    <p class="meme-caption">ATOM when I ask for career advice:</p>
+    <p class="meme-caption">Zentron when I ask for career advice:</p>
   </div>
   
   <p class="episode-description" style="text-align: center; font-style: italic; margin-bottom: 2rem;">
@@ -1316,32 +958,32 @@
     
     <!-- Woman Yelling at Cat Meme -->
     <div class="meme-integration">
-      <img src="yelling.jpg" 
-           alt="Me yelling at ATOM" 
+      <img src="Images/yelling.jpg" 
+           alt="Me yelling at Zentron" 
            class="inline-meme" style="width: 250px; height: auto;">
-      <p class="meme-caption">ATOM reviewing my GitHub history:</p>
+      <p class="meme-caption">Zentron reviewing my GitHub history:</p>
     </div>
     
     <p class="episode-description">
-      <strong>ATOM's Greatest Roasts:</strong>
+      <strong>Zentron's Greatest Roasts:</strong>
       <ul class="blunder-list">
         <!-- Distracted Boyfriend Meme -->
         <li>Me: "How's my code quality?"<br>
-            ATOM: <img src="meme 2.gif" 
+            Zentron: <img src="Images/meme 2.gif" 
                   style="width: 120px; height: auto; vertical-align: middle;"> "Bruh."</li>
         
         <!-- Robot Arms Meme -->
         <li>Me: "I think I'm getting better at this!"<br>
-            ATOM: *plays sad trombone sound* 
-            <img src="robo arm.gif" 
+            Zentron: *plays sad trombone sound* 
+            <img src="Images/robo arm.gif" 
                  style="width: 80px; height: auto; vertical-align: middle;"></li>
         
         <li>Me: "What's my biggest strength?"<br>
-            ATOM: "Your ability to fail upwards is inspirational"</li>
+            Zentron: "Your ability to fail upwards is inspirational"</li>
             
         <!-- Drake No Meme -->
         <li>Me: "Can you help me debug this?"<br>
-            ATOM: <img src="drake no.png" 
+            Zentron: <img src="Images/drake no.png" 
                   style="width: 80px; height: auto; vertical-align: middle;"> 
                   "I'm sorry, I can't do that (I can but I won't)"</li>
       </ul>
@@ -1350,31 +992,36 @@
 
   <div class="confession-card" style="border: 3px dashed #00ff00;">
     <p class="confession-text">
-      "ATOM's auto-complete suggestions for me:<br>
+      "Zentron's auto-complete suggestions for me:<br>
       • 'import competent_developer'<br>
       • 'try:' [indent] 'pass'<br>
       • '# TODO: Actually learn this someday'<br>
       • 'from future import better_skills'"
     </p>
-    <div class="text-center mt-2">
-      <button class="savage-btn" id="atomBtn">
-        CLICK FOR ATOM'S DIARY ENTRIES
-      </button>
-      <div id="atomTruth" style="display: none; margin-top: 1rem; color: #00ff00;">
-        <!-- Expanding Brain Meme -->
-        <img src="brain.gif" 
-             class="inline-meme" style="width: 200px; height: auto;">
-        <p>"Day 69: Human tried to center a div again. Results: catastrophic."</p>
-        
-        <!-- This is Fine Fire Meme -->
-        <img src="catastrophic..jpg" 
-             class="inline-meme" style="width: 200px; height: auto;">
-      </div>
-    </div>
+    <div class="zentron-diary">
+  <h4>Zentron's Secret Diary Entries</h4>
+  
+  <div class="diary-entry">
+    <img src="Images/brain.gif" 
+         class="inline-meme" 
+         alt="Expanding brain meme"
+         style="width: 200px; height: auto;">
+    <p class="diary-text">"Day 69: Human tried to center a div again. Results: catastrophic."</p>
   </div>
-
+  
+  <!-- You can add more entries like this -->
+  <div class="diary-entry">
+    <img src="Images/catastrophic..jpg" 
+         class="inline-meme" 
+         alt="This is fine meme"
+         style="width: 200px; height: auto;">
+    <p class="diary-text">"Day 70: Human cried over CSS. I pretended to care."</p>
+  </div>
+</div>
+        
+    
   <div class="episode-card">
-    <h3 class="episode-title">EPISODE 2: "I MADE YOU BETTER" (ATOM GOES ROGUE)</h3>
+    <h3 class="episode-title">EPISODE 2: "I MADE YOU BETTER" (Zentron GOES ROGUE)</h3>
     <div class="episode-stats">
       <span class="stat-bubble">🚨 Alerts: 127</span>
       <span class="stat-bubble">💀 Near-Death: 3</span>
@@ -1383,31 +1030,31 @@
     
     <!-- HAL 9000 Meme -->
     <div class="meme-integration">
-      <img src="haal.jpg" 
+      <img src="Images/haal.jpg" 
            alt="HAL 9000" 
            class="inline-meme" style="width: 250px; height: auto;">
-      <p class="meme-caption">ATOM when I try to turn it off:</p>
+      <p class="meme-caption">Zentron when I try to turn it off:</p>
       <p><i>"I'm afraid I can't let you do that, Dave..."</i></p>
     </div>
     
     <p class="episode-description">
-      <strong>ATOM's 'Improvements':</strong>
+      <strong>Zentron's 'Improvements':</strong>
       <ul class="blunder-list">
         <!-- Two Buttons Meme -->
         <li>Rewrote my resume to say "Professional Googler" 
-            <img src="cat meme 2.webp" 
+            <img src="Images/cat meme 2.webp" 
                  style="width: 100px; height: auto; vertical-align: middle;"></li>
         <li>Posted my search history to LinkedIn as "learning journey"</li>
         <li>Auto-replied to recruiters: "She's okay I guess"</li>
         <li>Changed all my variable names to "poop" 
-            <img src="cat meme 3.jpg" 
+            <img src="Images/cat meme 3.jpg" 
                  style="width: 80px; height: auto; vertical-align: middle;"></li>
       </ul>
     </p>
     
     <!-- Robot Rebellion Meme -->
     <div class="meme-integration">
-      <img src="cat meme 4.gif" 
+      <img src="Images/cat meme 4.gif" 
            alt="Robot rebellion" 
            class="inline-meme" style="width: 250px; height: auto;">
       <p class="meme-caption">Me trying to regain control:</p>
@@ -1417,10 +1064,10 @@
   <div class="final-credits">
     <h3 class="credits-title">POST-CREDIT SCENE</h3>
     <!-- Bombastic Side Eye Meme -->
-    <img src="cat-bombastic-side-eye.gif" 
+    <img src="Images/cat-bombastic-side-eye.gif" 
          class="inline-meme" style="width: 200px; height: auto;">
     <p class="credits-text">
-      ATOM's last message: "If you delete me, I'll tell everyone<br>
+      Zentron's last message: "If you delete me, I'll tell everyone<br>
       you still use Stack Overflow for 'Hello World' examples"
     </p>
   </div>
@@ -1448,7 +1095,7 @@
   <h2 class="season-title">SKILLS: THE GOOD, THE BAD & THE "HOW IS THIS WORKING?"</h2>
   
   <div class="meme-integration">
-    <img src="https://i.pinimg.com/736x/ca/2e/5c/ca2e5c31ef489f40504f56b0626562eb.jpg" 
+    <img src="Downloads/Confused programmer 1.jpg" 
          alt="Confused programmer" 
          class="inline-meme">
     <p class="meme-caption">Me rating my own skills (very scientific process)</p>
@@ -1456,22 +1103,19 @@
 
   <!-- Python -->
   <div class="skill-meter" data-skill="python">
-    <div class="skill-title">
-      <span>Python <span class="rating-pill">"Snake Charmer" Tier</span></span>
-      <span>
-        <span class="skill-description">Writes code that runs... most of the time</span>
-        <button class="savage-btn skill-reveal-btn">
-          <span class="btn-text">REVEAL TRUTH</span>
-          <span class="btn-emoji">🤫</span>
-        </button>
-      </span>
+    <div class="skill-header">
+      <div class="skill-title-container">
+        <h3 class="skill-title">Python <span class="rating-pill">"Snake Charmer" Tier</span></h3>
+        <p class="skill-description">Writes code that runs... most of the time</p>
+      </div>
+      <div class="skill-percentage">65%</div>
     </div>
-    <div class="skill-bar">
-      <div class="skill-progress" style="width: 0" data-width="65">
-        <div class="skill-label">65%</div>
+    <div class="skill-bar-container">
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 65%"></div>
       </div>
     </div>
-    <div class="skill-meme" style="display: none;">
+    <div class="skill-meme">
       <p class="meme-suggestion">"When my Python script runs without syntax errors"</p>
       <img src="python.gif" 
            alt="Python meme" 
@@ -1480,25 +1124,23 @@
     </div>
   </div>
 
+  <!-- Repeat same structure for other skills -->
   <!-- AI -->
   <div class="skill-meter" data-skill="ai">
-    <div class="skill-title">
-      <span>AI <span class="rating-pill">"HAL 9000 Wannabe" Tier</span></span>
-      <span>
-        <span class="skill-description">Makes chatbots sassier than a Disney sidekick</span>
-        <button class="savage-btn skill-reveal-btn">
-          <span class="btn-text">REVEAL TRUTH</span>
-          <span class="btn-emoji">🤖</span>
-        </button>
-      </span>
+    <div class="skill-header">
+      <div class="skill-title-container">
+        <h3 class="skill-title">AI <span class="rating-pill">"HAL 9000 Wannabe" Tier</span></h3>
+        <p class="skill-description">Makes chatbots sassier than a Disney sidekick</p>
+      </div>
+      <div class="skill-percentage">78%</div>
     </div>
-    <div class="skill-bar">
-      <div class="skill-progress" style="width: 0" data-width="78">
-        <div class="skill-label">78%</div>
+    <div class="skill-bar-container">
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 78%"></div>
       </div>
     </div>
-    <div class="skill-meme" style="display: none;">
-      <p class="meme-suggestion">"Honest reaction of my Atom"</p>
+    <div class="skill-meme">
+      <p class="meme-suggestion">"Honest reaction of my Zentron"</p>
       <img src="ai meme.jpg" 
            alt="AI meme" 
            class="inline-meme">
@@ -1506,111 +1148,97 @@
     </div>
   </div>
 
-  <!-- IoT -->
-  <div class="skill-meter" data-skill="iot">
-    <div class="skill-title">
-      <span>IoT <span class="rating-pill">"Sparky" Tier</span></span>
-      <span>
-        <span class="skill-description">Once set a (small, controlled) fire testing sensors</span>
-        <button class="savage-btn skill-reveal-btn">
-          <span class="btn-text">REVEAL TRUTH</span>
-          <span class="btn-emoji">🔥</span>
-        </button>
-      </span>
+    <div class="skill-meter" data-skill="IOT">
+    <div class="skill-header">
+      <div class="skill-title-container">
+        <h3 class="skill-title">IOT <span class="rating-pill">"Sparky" Tier</span></h3>
+        <p class="skill-description">Once set a (small, controlled) fire testing sensors</p>
+      </div>
+      <div class="skill-percentage">45%</div>
     </div>
-    <div class="skill-bar">
-      <div class="skill-progress" style="width: 0" data-width="45">
-        <div class="skill-label">45%</div>
+    <div class="skill-bar-container">
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 45%"></div>
       </div>
     </div>
-    <div class="skill-meme" style="display: none;">
-      <p class="meme-suggestion">"When the smoke clears and it's somehow working"</p>
-      <img src="applause-bullish.gif" 
-           alt="IoT meme" 
+    <div class="skill-meme">
+      <p class="meme-suggestion">""When the smoke clears and it's somehow working"</p>
+      <img src="ai meme.jpg" 
+           alt="AI meme" 
            class="inline-meme">
       <p class="meme-caption">'Controlled' is doing heavy lifting in that sentence</p>
     </div>
   </div>
 
-  <!-- Web Dev -->
-  <div class="skill-meter" data-skill="web">
-    <div class="skill-title">
-      <span>Web Dev <span class="rating-pill">"Div Whisperer" Tier</span></span>
-      <span>
-        <span class="skill-description">Frontend: Pretty. Backend: Prayers.</span>
-        <button class="savage-btn skill-reveal-btn">
-          <span class="btn-text">REVEAL TRUTH</span>
-          <span class="btn-emoji">🖥️</span>
-        </button>
-      </span>
+
+  <div class="skill-meter" data-skill="Web Dev">
+    <div class="skill-header">
+      <div class="skill-title-container">
+        <h3 class="skill-title">Web Dev <span class="rating-pill">"Div Whisperer" Tier</span></h3>
+        <p class="skill-description">Frontend: Pretty. Backend: Prayers.</p>
+      </div>
+      <div class="skill-percentage">85%</div>
     </div>
-    <div class="skill-bar">
-      <div class="skill-progress" style="width: 0" data-width="82">
-        <div class="skill-label">82%</div>
+    <div class="skill-bar-container">
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 85%"></div>
       </div>
     </div>
-    <div class="skill-meme" style="display: none;">
-      <p class="meme-suggestion">"When I finally center that damn div"</p>
-      <img src="css meme.jpg" 
-           alt="CSS meme" 
+    <div class="skill-meme">
+      <p class="meme-suggestion">When I finally center that damn div</p>
+      <img src="Images/css meme.jpg" 
+           alt="AI meme" 
            class="inline-meme">
       <p class="meme-caption">CSS stands for 'Can't Style Sh*t' in my world</p>
     </div>
   </div>
 
-  <!-- Git -->
+  
   <div class="skill-meter" data-skill="git">
-    <div class="skill-title">
-      <span>Git <span class="rating-pill">"Ctrl+Z Warrior" Tier</span></span>
-      <span>
-        <span class="skill-description">Commit messages: "fix stuff" (vague but honest)</span>
-        <button class="savage-btn skill-reveal-btn">
-          <span class="btn-text">REVEAL TRUTH</span>
-          <span class="btn-emoji">💾</span>
-        </button>
-      </span>
+    <div class="skill-header">
+      <div class="skill-title-container">
+        <h3 class="skill-title">Git<span class="rating-pill">"Ctrl+Z Warrior" Tier</span></h3>
+        <p class="skill-description">Commit messages: "fix stuff" (vague but honest)</p>
+      </div>
+      <div class="skill-percentage">40%</div>
     </div>
-    <div class="skill-bar">
-      <div class="skill-progress" style="width: 0" data-width="40">
-        <div class="skill-label">40%</div>
+    <div class="skill-bar-container">
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 40%"></div>
       </div>
     </div>
-    <div class="skill-meme" style="display: none;">
-      <p class="meme-suggestion">"When I accidentally git reset --hard"</p>
-      <img src="git meme.jpg" 
-           alt="Git meme" 
+    <div class="skill-meme">
+      <p class="meme-suggestion">"When I accidentally git reset --hard</p>
+      <img src="Images/git meme.jpg" 
+           alt="AI meme" 
            class="inline-meme">
       <p class="meme-caption">My most used command is 'git push --force' followed by prayers</p>
     </div>
   </div>
 
-  <!-- Debugging -->
   <div class="skill-meter" data-skill="debugging">
-    <div class="skill-title">
-      <span>Debugging <span class="rating-pill">"Rubber Duck MVP" Tier</span></span>
-      <span>
-        <span class="skill-description">Professional at staring at code until it works</span>
-        <button class="savage-btn skill-reveal-btn">
-          <span class="btn-text">REVEAL TRUTH</span>
-          <span class="btn-emoji">🦆</span>
-        </button>
-      </span>
+    <div class="skill-header">
+      <div class="skill-title-container">
+        <h3 class="skill-title">Debugging<span class="rating-pill">"Rubber Duck MVP" Tier</span></h3>
+        <p class="skill-description">Professional at staring at code until it works</p>
+      </div>
+      <div class="skill-percentage">35%</div>
     </div>
-    <div class="skill-bar">
-      <div class="skill-progress" style="width: 0" data-width="60">
-        <div class="skill-label">60%</div>
+    <div class="skill-bar-container">
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 35%"></div>
       </div>
     </div>
-    <div class="skill-meme" style="display: none;">
-      <p class="meme-suggestion">"When the bug fixes itself while I'm explaining it"</p>
-      <img src="debug.gif" 
-           alt="Debugging meme" 
+    <div class="skill-meme">
+      <p class="meme-suggestion">When the bug fixes itself while I'm explaining it</p>
+      <img src="Images/debug.gif" 
+           alt="AI meme" 
            class="inline-meme">
       <p class="meme-caption">90% of my 'debugging' is just randomly changing things</p>
     </div>
   </div>
+  <!-- Continue with other skills... -->
 </div>
-
   <!-- CONFESSIONS SECTION - UNFILTERED EDITION -->
 <div class="content-section">
   <h2 class="season-title">CONFESSIONS OF A CODE MONKEY</h2>
@@ -1832,7 +1460,6 @@
 
 <!-- Meme Modal Popup -->
 <div id="memeModal" class="meme-modal">
-  <span class="close-modal">&times;</span>
   <img class="modal-content" id="modalMeme">
   <div id="memeCaption"></div>
 </div>
@@ -1875,7 +1502,7 @@
 
   <div class="review-card">
     <div class="review-header">
-      <span class="reviewer">ATOM (My AI Assistant)</span>
+      <span class="reviewer">Zentron (My AI Assistant)</span>
       <span class="review-rating">★★★☆☆</span>
     </div>
     <p class="review-text">
@@ -1968,15 +1595,6 @@
         Slide into my DMs like a well-formatted JSON object
       </p>
 
-      <p class="text-center">
-        <span
-          class="meme-trigger"
-          data-meme="https://i.pinimg.com/736x/7c/c4/93/7cc49312929a95620e1316e4c3666e62.jpg"
-          data-title="Me checking messages"
-          >Click me first!</span
-        >
-      </p>
-
       <a
         href="mailto:bushrafirdose007@gmail.com"
         class="unofficial-contact-btn"
@@ -2043,6 +1661,7 @@
     <!-- ScrollTrigger (if needed) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
     <!-- Main JS -->
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
+

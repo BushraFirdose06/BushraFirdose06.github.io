@@ -295,32 +295,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    const projectTitles = section.querySelectorAll(".project-row-title");
-    if (projectTitles.length > 0) {
-      gsap.to(projectTitles, {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        ease: "power3.out",
-        onComplete: () => {
-          projectTitles.forEach((title) => {
-            title.classList.add("visible");
-          });
-        },
-      });
-    }
-
-    const projectCards = section.querySelectorAll(".project-card");
-    if (projectCards.length > 0) {
-      gsap.to(projectCards, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.15,
-        ease: "power3.out",
-      });
-    }
-
     // Certificates container animation
     const certificatesContainer = section.querySelector(
       ".certificates-container"
@@ -541,56 +515,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 4000);
       });
     }
-  }
-
-  // Meme functionality
-  const memeContainer = document.getElementById("memeContainer");
-  const memeGif = document.getElementById("memeGif");
-  const memeTitle = document.getElementById("memeTitle");
-  const memeCloseBtn = document.getElementById("memeCloseBtn");
-  const memeTriggers = document.querySelectorAll(".meme-trigger");
-
-  if (memeContainer && memeGif && memeTitle && memeCloseBtn) {
-    memeTriggers.forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        const gifUrl = trigger.getAttribute("data-meme");
-        const title = trigger.getAttribute("data-title");
-
-        if (gifUrl && title) {
-          memeGif.src = gifUrl;
-          memeTitle.textContent = title;
-          memeContainer.style.display = "flex";
-
-          // Play animation
-          gsap.from(memeContainer, {
-            opacity: 0,
-            duration: 0.5,
-            ease: "power2.out",
-          });
-          gsap.from(memeGif, {
-            scale: 0.5,
-            opacity: 0,
-            duration: 0.7,
-            ease: "back.out(1.7)",
-          });
-
-          // Trap focus in meme modal
-          trapFocus(memeContainer);
-        }
-      });
-    });
-
-    memeCloseBtn.addEventListener("click", () => {
-      gsap.to(memeContainer, {
-        opacity: 0,
-        duration: 0.3,
-        ease: "power2.in",
-        onComplete: () => {
-          memeContainer.style.display = "none";
-          memeGif.src = "";
-        },
-      });
-    });
   }
 
   // Enhanced mode selector functionality
@@ -822,16 +746,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Atom button toggle
-  const atomBtn = document.getElementById("atomBtn");
-  const atomTruth = document.getElementById("atomTruth");
-  if (atomBtn && atomTruth) {
-    atomBtn.addEventListener("click", function () {
-      atomTruth.style.display =
-        atomTruth.style.display === "none" ? "block" : "none";
+  // Zentron button toggle
+  const ZentronBtn = document.getElementById("ZentronBtn");
+  const ZentronTruth = document.getElementById("ZentronTruth");
+  if (ZentronBtn && ZentronTruth) {
+    ZentronBtn.addEventListener("click", function () {
+      ZentronTruth.style.display =
+        ZentronTruth.style.display === "none" ? "block" : "none";
       this.textContent =
-        atomTruth.style.display === "none"
-          ? "CLICK FOR ATOM'S DIARY ENTRIES"
+        ZentronTruth.style.display === "none"
+          ? "CLICK FOR Zentron'S DIARY ENTRIES"
           : "OK THAT'S ENOUGH";
     });
   }
@@ -947,61 +871,96 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Replace the existing meme modal code with this:
+// Meme Modal System
 const memeModal = document.getElementById("memeModal");
-const modalMeme = document.getElementById("modalMeme");
-const memeCaption = document.getElementById("memeCaption");
-const closeModal = document.querySelector(".close-modal");
+const memeModalImage = document.getElementById("memeModalImage");
+const memeModalTitle = document.getElementById("memeModalTitle");
+const memeModalClose = document.getElementById("memeModalClose");
 
-// Function to open meme modal
+let isModalOpen = false;
+let closeTimeout;
+
+// Open meme modal
 function openMemeModal(src, title) {
-  modalMeme.src = src;
-  memeCaption.textContent = title;
-  memeModal.style.display = "block";
+  // Clear any pending close timeouts
+  clearTimeout(closeTimeout);
 
-  // Reset animation
-  gsap.from(memeModal, { opacity: 0, duration: 0.3 });
-  gsap.from(modalMeme, {
-    scale: 0.8,
-    opacity: 0,
-    duration: 0.5,
-    ease: "back.out(1.7)",
-  });
+  // Set content
+  memeModalImage.src = src;
+  memeModalTitle.textContent = title;
+
+  // Show modal
+  memeModal.style.display = "flex";
+  setTimeout(() => {
+    memeModal.classList.add("active");
+    isModalOpen = true;
+  }, 10);
+
+  // Disable body scroll
+  document.body.style.overflow = "hidden";
 }
 
-// Close modal function
+// Close meme modal
 function closeMemeModal() {
-  gsap.to(memeModal, {
-    opacity: 0,
-    duration: 0.3,
-    onComplete: () => {
-      memeModal.style.display = "none";
-      modalMeme.src = "";
-      memeCaption.textContent = "";
-    },
-  });
+  memeModal.classList.remove("active");
+
+  // Wait for animation to complete before hiding
+  closeTimeout = setTimeout(() => {
+    memeModal.style.display = "none";
+    memeModalImage.src = "";
+    memeModalTitle.textContent = "";
+    isModalOpen = false;
+    document.body.style.overflow = "";
+  }, 300);
 }
 
-// Event listeners for meme triggers
-document
-  .querySelectorAll(".meme-trigger, .confession-btn")
-  .forEach((trigger) => {
-    trigger.addEventListener("click", function () {
-      const memeSrc = this.getAttribute("data-meme");
-      const memeTitle = this.getAttribute("data-title") || "Meme";
+// Click handlers for all meme triggers
+document.querySelectorAll("[data-meme]").forEach((trigger) => {
+  trigger.addEventListener("click", function (e) {
+    e.preventDefault();
+    const src = this.getAttribute("data-meme");
+    const title = this.getAttribute("data-title") || "Meme";
 
-      if (memeSrc) {
-        openMemeModal(memeSrc, memeTitle);
-      }
-    });
+    if (src && !isModalOpen) {
+      openMemeModal(src, title);
+    }
   });
+});
 
-// Close modal when clicking X
-closeModal.addEventListener("click", closeMemeModal);
+// Close button
+memeModalClose.addEventListener("click", closeMemeModal);
 
-// Close modal when clicking outside
+// Close when clicking outside content
 memeModal.addEventListener("click", function (e) {
   if (e.target === memeModal) {
     closeMemeModal();
   }
+});
+
+// Close with Escape key
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && isModalOpen) {
+    closeMemeModal();
+  }
+});
+
+// Certificate hover effect enhancement
+document.querySelectorAll(".certificate-card").forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    const img = card.querySelector("img");
+    gsap.to(img, {
+      scale: 1.1,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  });
+
+  card.addEventListener("mouseleave", () => {
+    const img = card.querySelector("img");
+    gsap.to(img, {
+      scale: 1,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  });
 });

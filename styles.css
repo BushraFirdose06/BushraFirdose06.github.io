@@ -12,6 +12,15 @@
   --neon-pink: #ff00ff;
   --netflix-gray: #a0a0a0;
   --neon-purple: #9d00ff;
+  --background-dark: #141414;
+  --text-light: #e5e5e5;
+  --text-muted: #8c8c8c;
+  --card-bg: #1f1f1f;
+  --hover-bg: #2a2a2a;
+  --neon-pink: #f1055f;
+  --netflix-white: #e5e5e5;
+  --netflix-gray: #8c8c8c;
+  --background-dark: #141414;
 }
 
 @keyframes bounce {
@@ -52,56 +61,6 @@
       format("woff2"),
     url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Md.woff)
       format("woff");
-}
-
-/* New styles for meme gifs */
-.meme-container {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 999999;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.meme-gif {
-  max-width: 80%;
-  max-height: 60vh;
-  border-radius: 8px;
-  border: 3px solid var(--netflix-red);
-  box-shadow: 0 0 30px var(--netflix-red);
-}
-
-.meme-close-btn {
-  margin-top: 2rem;
-  background: var(--netflix-red);
-  border: none;
-  color: var(--netflix-white);
-  padding: 0.8rem 2rem;
-  font-family: "Netflix Sans", sans-serif;
-  font-weight: 700;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.meme-close-btn:hover {
-  background: var(--netflix-red-dark);
-  transform: scale(1.1);
-  box-shadow: var(--glow);
-}
-
-.meme-title {
-  color: var(--netflix-white);
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  text-align: center;
 }
 
 /* Enhanced mode selector */
@@ -342,8 +301,11 @@
   font-size: 1.5rem;
 }
 .hero-content {
+  max-width: 1200px;
+  padding: 0 2rem;
   padding-bottom: 80px; /* Creates space at bottom for scroll hint */
   position: relative;
+  z-index: 3; /* Higher than any other elements */
   height: calc(100vh - 80px); /* Adjust height accounting for padding */
 }
 
@@ -452,23 +414,6 @@
   left: -1.5rem;
 }
 
-.meme-integration {
-  margin: 1.5rem 0;
-  text-align: center;
-}
-
-.meme-caption {
-  font-style: italic;
-  color: var(--netflix-gray);
-  margin-bottom: 0.5rem;
-}
-
-.inline-meme {
-  max-width: 200px;
-  border-radius: 8px;
-  border: 2px solid var(--netflix-red);
-  box-shadow: 0 0 15px rgba(229, 9, 20, 0.3);
-}
 .unofficial-contact {
   background: rgba(30, 30, 30, 0.8);
   border-radius: 8px;
@@ -566,17 +511,6 @@
   height: auto !important;
   display: block !important;
   margin: 10px auto !important;
-}
-
-.meme-trigger {
-  cursor: pointer;
-  text-decoration: underline;
-  color: var(--netflix-red);
-  transition: all 0.3s;
-}
-
-.meme-trigger:hover {
-  text-shadow: 0 0 10px var(--netflix-red);
 }
 
 /* Warning dialog styles */
@@ -791,39 +725,80 @@ html {
 
 .episode-card {
   background: rgba(30, 30, 30, 0.8);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-left: 4px solid var(--netflix-red);
+  border-left: 5px solid #00ff00; /* Change to Matrix green for AI feel */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
 }
 
+.episode-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.4);
+  border-left-width: 8px;
+}
+
+/* Glitch effect for the title */
 .episode-title {
-  color: var(--netflix-red);
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-family: "Courier New", monospace;
+  color: #00ff00;
+  position: relative;
+  display: inline-block;
 }
 
-.episode-runtime {
-  color: var(--netflix-gray);
-  font-family: "Netflix Sans", sans-serif;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+.episode-title:hover {
+  animation: glitch 0.5s linear infinite;
 }
 
-.episode-description {
-  color: var(--netflix-white);
-  font-family: "Netflix Sans", sans-serif;
-  margin-bottom: 1rem;
-  line-height: 1.6;
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-3px, 3px);
+  }
+  40% {
+    transform: translate(-3px, -3px);
+  }
+  60% {
+    transform: translate(3px, 3px);
+  }
+  80% {
+    transform: translate(3px, -3px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
 
-.episode-review {
-  font-style: italic;
-  color: var(--netflix-gray);
-  border-left: 2px solid var(--netflix-red);
-  padding-left: 1rem;
-  margin-top: 1rem;
+/* Stats bubbles - digital pulse effect */
+.stat-bubble {
+  background: rgba(1, 31, 67, 0.15)
+  border: 1px solid #ff0000;
+  animation: pulse-opacity 2s infinite alternate;
+}
+
+@keyframes pulse-opacity {
+  0% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Add a subtle digital noise overlay */
+.episode-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+    pointer-events: none;
+  mix-blend-mode: overlay;
 }
 
 .confession-card {
@@ -1082,11 +1057,13 @@ body {
   text-align: center;
   padding: 0%;
   position: relative;
-  overflow: visible;
+  z-index: 1;
+  overflow: hidden;
+  padding-top: 60px; /* Account for fixed header */
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")
       no-repeat center center/cover;
-  background-attachment: fixed;
+  background-attachment: scroll !important;
 }
 
 .hero::before {
@@ -1108,9 +1085,8 @@ body {
 }
 
 .hero h1 {
-  opacity: 1 !important;
-  transform: none !important;
-  animation: glow-pulse 2s infinite;
+  opacity: 0;
+  transform: translateY(100px);
 }
 
 .hero h1 {
@@ -1122,7 +1098,6 @@ body {
   text-shadow: 0 0 15px rgba(229, 9, 20, 0.8), 0 0 30px rgba(229, 9, 20, 0.5);
   opacity: 0;
   transform: translateY(100px);
-  animation: glow-pulse 2s infinite;
 }
 
 .hero p {
@@ -1130,22 +1105,40 @@ body {
   margin-bottom: 2rem;
   color: var(--netflix-white);
   font-weight: 300;
-  opacity: 0;
-  transform: translateY(100px);
   text-shadow: 0 0 10px rgba(229, 9, 20, 0.6);
-  animation: glow-pulse 2.5s infinite;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: glow-pulse 2s infinite;
 }
 
 /* Netflix-style title */
 .netflix-title {
   position: relative;
-  display: inline-block;
+  display: block;
   font-family: "Bebas Neue", sans-serif;
   font-size: clamp(3rem, 8vw, 6rem);
   color: var(--netflix-white);
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 1rem;
+  text-shadow: 0 0 15px rgba(229, 9, 20, 0.8), 0 0 30px rgba(229, 9, 20, 0.5);
+  opacity: 1 !important;
+  transform: none !important;
+  animation: glow-pulse 2s infinite;
+  width: fit-content;
+  background: linear-gradient(
+    to right,
+    var(--netflix-red) 0%,
+    var(--netflix-red) 10%,
+    transparent 10%,
+    transparent 90%,
+    var(--netflix-red) 90%,
+    var(--netflix-red) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 0 20px;
 }
 
 .netflix-title::before {
@@ -1168,32 +1161,18 @@ body {
   opacity: 0.7;
 }
 
-.netflix-title::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: var(--netflix-red);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s ease;
-}
-
-.netflix-title:hover::after {
-  transform: scaleX(1);
-}
-
 @keyframes glow-pulse {
   0% {
-    text-shadow: 0 0 10px rgba(229, 9, 20, 0.6), 0 0 20px rgba(229, 9, 20, 0.4);
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.6);
+    opacity: 1;
   }
   50% {
-    text-shadow: 0 0 20px rgba(229, 9, 20, 0.8), 0 0 40px rgba(229, 9, 20, 0.6);
+    text-shadow: 0 0 20px rgba(229, 9, 20, 0.9), 0 0 40px rgba(229, 9, 20, 0.7);
+    opacity: 1;
   }
   100% {
-    text-shadow: 0 0 10px rgba(229, 9, 20, 0.6), 0 0 20px rgba(229, 9, 20, 0.4);
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.6);
+    opacity: 1;
   }
 }
 
@@ -1254,13 +1233,17 @@ body {
   font-family: "Bebas Neue", sans-serif;
   color: var(--netflix-white);
   font-size: 3.5rem;
-  text-align: center;
+  text-align: right;
+  padding-right: 1rem;
+  border-right: 4px solid var(--netflix-red);
+  border-left: none;
+  left: auto;
+  right: 0;
+  transform: none !important;
   margin-bottom: 3rem;
   letter-spacing: 3px;
   position: relative;
   display: inline-block;
-  left: 50%;
-  transform: none !important; /* Remove any transform animations */
   animation: none !important; /* Disable any text animations */
   opacity: 1 !important; /* Force visible */
 }
@@ -1273,6 +1256,20 @@ body {
   background: var(--netflix-red);
   bottom: -10px;
   left: 25%;
+  transition: width 0.5s ease;
+  border-radius: 2px;
+  display: none;
+}
+
+/* Add right border animation */
+.section-title::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  width: 0;
+  height: 4px;
+  background: var(--netflix-red);
   transition: width 0.5s ease;
   border-radius: 2px;
 }
@@ -1304,41 +1301,9 @@ body {
   color: var(--netflix-red);
 }
 
-/* Skills Section - Enhanced Animations */
-#the-algorithm .skills-carousel {
-  overflow: visible;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 2rem 0;
-}
-
-#the-algorithm .skills-track {
-  display: flex;
-  gap: 1.5rem;
-  padding: 1rem 0;
-  animation: scroll 20s linear infinite;
-}
-
 .content-section {
   position: relative;
   z-index: 1;
-}
-#the-algorithm .skills-track:hover {
-  animation-play-state: paused;
-}
-#the-academy,
-#the-algorithm {
-  display: block !important;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-250px * 7));
-  }
 }
 
 .skill-card {
@@ -1389,101 +1354,7 @@ body {
   font-size: 1rem;
 }
 
-/* Projects Section */
-.projects-container {
-  margin: 2rem 0;
-}
-
-.project-row-title {
-  font-family: "Netflix Sans", sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--netflix-white);
-  margin: 1.5rem 0;
-  padding-left: 1rem;
-  opacity: 0;
-  transform: translateX(-50px);
-  position: relative;
-}
-
-.project-row-title::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 1rem;
-  width: 0;
-  height: 2px;
-  background: var(--netflix-red);
-  transition: width 0.5s ease;
-}
-
-.project-row-title.visible::after {
-  width: 100px;
-}
-
-.project-row {
-  display: flex;
-  overflow-x: auto;
-  padding: 1rem 0;
-  gap: 1rem;
-  scrollbar-width: none;
-}
-
-.project-row::-webkit-scrollbar {
-  display: none;
-}
-
-.project-card {
-  min-width: 300px;
-  background: rgba(30, 30, 30, 0.8);
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-}
-
-.project-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.project-card:hover img {
-  transform: scale(1.1);
-}
-
-.project-card .card-body {
-  padding: 1rem;
-}
-
-.project-card h5 {
-  color: var(--netflix-white);
-  font-family: "Netflix Sans", sans-serif;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.project-tagline {
-  font-size: 0.9rem;
-  color: var(--netflix-gray);
-  font-style: italic;
-  margin-bottom: 1rem;
-}
-
-.project-card .btn {
-  background: var(--netflix-red);
-  border: none;
-  color: var(--netflix-white);
-  font-family: "Netflix Sans", sans-serif;
-  font-weight: 700;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
-}
+/* ===== SCI-FI VENTURES SECTION ===== */
 
 .inline-meme {
   max-width: 100%;
@@ -1504,11 +1375,6 @@ body {
   }
 }
 
-.project-card .btn:hover {
-  background: var(--netflix-red-dark);
-  box-shadow: var(--glow);
-}
-
 /* Education Section - Enhanced Animations */
 .education-card {
   background: rgba(30, 30, 30, 0.8);
@@ -1523,45 +1389,9 @@ body {
   opacity: 1 !important;
 }
 
-/* MEME MODAL STYLES */
-.meme-modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  text-align: center;
-}
-
-#memeCaption {
-  margin: 15px auto;
-  color: white;
-  font-family: "Netflix Sans", sans-serif;
-  font-size: 1.2rem;
-}
-
-.close-modal {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.close-modal:hover {
-  color: #e50914;
-}
-
-/* PREVIEW IMAGE STYLES */
 .confession-meme img {
-  max-width: 180px;
-  max-height: 120px;
+  max-width: 220px;
+  max-height: 160px;
   border: 2px solid #e50914;
   border-radius: 6px;
   cursor: pointer;
@@ -1569,9 +1399,9 @@ body {
 }
 
 .confession-meme img:hover {
-  transform: scale(1.05);
+  transform: scale(1.2); /* Bigger zoom effect */
+  z-index: 10; /* Ensures hovered image appears above others */
 }
-
 .education-card:before {
   content: "";
   position: absolute;
@@ -1614,111 +1444,6 @@ body {
   border-radius: 20px;
   margin-right: 0.5rem;
   font-family: "Bebas Neue", sans-serif;
-}
-
-.inline-meme {
-  max-width: 250px;
-  border-radius: 8px;
-  border: 2px solid var(--netflix-red);
-  box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
-  margin: 0.5rem 0;
-  transition: transform 0.3s;
-}
-
-.inline-meme:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(229, 9, 20, 0.6);
-}
-
-.meme-caption {
-  font-style: italic;
-  color: var(--netflix-gray);
-  margin: 0.3rem 0 1rem;
-  font-size: 0.9rem;
-}
-
-/* Certificates Section */
-.certificates-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.certificate-card {
-  background: rgba(30, 30, 30, 0.8);
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.certificate-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.certificate-card:hover img {
-  transform: scale(1.1);
-}
-
-.certificate-card .card-body {
-  padding: 1rem;
-}
-.thought-bubble {
-  display: inline-block;
-  background: rgba(255, 105, 180, 0.2);
-  padding: 0.1rem 0.5rem;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  margin: 0.3rem 0;
-}
-
-.savage-btn {
-  background: linear-gradient(to right, #ff00ff, #ff1493);
-  border: none;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.savage-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
-}
-.certificate-card h5 {
-  color: var(--netflix-white);
-  font-family: "Netflix Sans", sans-serif;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.certificate-card p {
-  color: var(--netflix-gray);
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.certificate-card .btn {
-  background: var(--netflix-red);
-  border: none;
-  color: var(--netflix-white);
-  font-family: "Netflix Sans", sans-serif;
-  font-weight: 700;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
-}
-
-.certificate-card .btn:hover {
-  background: var(--netflix-red-dark);
-  box-shadow: var(--glow);
 }
 
 /* Contact Section */
@@ -1944,104 +1669,6 @@ body {
   transition: all 0.5s ease;
 }
 
-/* Improved Project Modal Styles */
-.modal-content {
-  background: var(--netflix-dark);
-  border: 2px solid var(--netflix-red);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.modal-header {
-  background: rgba(20, 20, 20, 0.9);
-  border-bottom: 1px solid var(--netflix-red);
-  padding: 1.5rem;
-}
-
-.modal-title {
-  font-family: "Bebas Neue", sans-serif;
-  color: var(--netflix-white);
-  font-size: 2rem;
-  letter-spacing: 1px;
-  margin: 0;
-}
-
-.modal-body {
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  background: rgba(30, 30, 30, 0.9);
-}
-
-.modal-body img {
-  width: 100%;
-  height: auto;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid rgba(229, 9, 20, 0.3);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-.modal-text-content {
-  color: var(--netflix-white);
-  font-family: "Netflix Sans", sans-serif;
-}
-
-.modal-text-content p {
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.modal-text-content strong {
-  color: var(--netflix-red);
-  font-weight: 700;
-}
-
-.modal-text-content ul {
-  padding-left: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.modal-text-content li {
-  margin-bottom: 0.5rem;
-  position: relative;
-}
-
-.modal-text-content li:before {
-  content: "•";
-  color: var(--netflix-red);
-  font-weight: bold;
-  position: absolute;
-  left: -1rem;
-}
-
-.modal-footer {
-  background: rgba(20, 20, 20, 0.9);
-  border-top: 1px solid var(--netflix-red);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.modal-footer .btn {
-  background: var(--netflix-red);
-  color: var(--netflix-white);
-  border: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: 4px;
-  font-family: "Netflix Sans", sans-serif;
-  font-weight: 700;
-  transition: all 0.3s;
-}
-
-.modal-footer .btn:hover {
-  background: var(--netflix-red-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(229, 9, 20, 0.5);
-}
-
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .modal-body {
@@ -2194,13 +1821,6 @@ body {
   display: none;
 }
 
-.meme-suggestion {
-  color: var(--netflix-gray);
-  font-style: italic;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-}
-
 .skill-reveal-btn {
   position: relative;
   overflow: hidden;
@@ -2268,17 +1888,6 @@ body {
   box-shadow: var(--glow);
 }
 
-/* Add this to your media queries */
-@media (max-width: 576px) {
-  .hero h1 {
-    font-size: 2rem;
-    white-space: normal; /* Allow text wrapping */
-  }
-  .project-card {
-    min-width: 85vw; /* Better mobile scrolling */
-  }
-}
-
 /* Responsive */
 @media (max-width: 992px) {
   .navbar {
@@ -2305,10 +1914,6 @@ body {
 
   .section-title {
     font-size: 2.5rem;
-  }
-
-  .certificates-container {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
 
@@ -3098,50 +2703,6 @@ a:focus {
   color: var(--neon-pink);
 }
 
-.meme-modal {
-  display: none;
-  position: fixed;
-  z-index: 99999; /* Higher than everything else */
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  text-align: center;
-}
-
-.modal-content {
-  margin: auto;
-  display: block;
-  max-width: 90%;
-  max-height: 80vh;
-  margin-top: 5vh;
-  border: 3px solid #e50914;
-  border-radius: 8px;
-}
-
-#memeCaption {
-  margin: 15px auto;
-  color: white;
-  font-family: "Netflix Sans", sans-serif;
-  font-size: 1.2rem;
-}
-
-.close-modal {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.close-modal:hover {
-  color: #e50914;
-}
-
 /* Interstellar Relay Section */
 #interstellar-relay {
   background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
@@ -3468,4 +3029,903 @@ a:focus {
   .relay-title {
     font-size: 1.8rem;
   }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  /* Hero section adjustments */
+  .hero {
+    padding-top: 60px; /* Account for fixed header */
+    background-attachment: scroll !important;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  /* Section title adjustments */
+  .section-title {
+    font-size: 2.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Creator section */
+  .creator-profile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-img {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Education timeline */
+  #the-academy .education-timeline::before {
+    left: 25px;
+  }
+
+  .education-card {
+    padding-left: 3rem;
+  }
+
+  .education-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+  }
+
+  /* Skills carousel */
+  .skills-carousel {
+    padding: 0 1rem;
+  }
+
+  .skill-card {
+    min-width: 85vw;
+    scroll-snap-align: center;
+  }
+
+  /* Contact form */
+  .relay-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Modal adjustments */
+  .modal-body {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-body img {
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Even smaller screens */
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  /* Education cards */
+  .education-content h5 {
+    font-size: 1.1rem;
+  }
+
+  .institution {
+    font-size: 0.9rem;
+  }
+
+  /* Contact info */
+  .contact-method {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 60px;
+    background-attachment: scroll;
+  }
+
+  .netflix-title {
+    font-size: clamp(2rem, 12vw, 4rem);
+    padding: 0 10px;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-content {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .netflix-title {
+    font-size: clamp(1.8rem, 10vw, 3rem);
+    letter-spacing: 2px;
+  }
+
+  .pulse-text {
+    font-size: 1rem;
+  }
+}
+/* Ensure loading screen doesn't interfere */
+#loading-screen {
+  z-index: 9999;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, var(--netflix-dark), transparent);
+  z-index: 2; /* Below content but above background */
+}
+
+body {
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.content-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--netflix-red);
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Grid layout for projects */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+}
+
+/* Project item styling */
+.project-item {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.project-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Project preview (image and overlay) */
+.project-preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-preview img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-item:hover .project-preview img {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-item:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-overlay h3 {
+  font-size: 1.5rem;
+  color: var(--text-light);
+  margin: 0;
+  text-align: center;
+}
+
+.project-tagline {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 10px 0 0;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Project details */
+.project-details {
+  padding: 20px;
+}
+
+.project-details p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0 0 15px;
+  line-height: 1.5;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--netflix-red);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.project-link i {
+  margin-right: 8px;
+}
+
+.project-link:hover {
+  color: var(--text-light);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-preview img {
+    height: 180px;
+  }
+
+  .project-overlay h3 {
+    font-size: 1.2rem;
+  }
+
+  .project-tagline {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-section {
+    padding: 40px 15px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .project-details p {
+    font-size: 0.9rem;
+  }
+}
+
+/* CERTIFICATES SECTION - NETFLIX STYLE */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.certificate-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  aspect-ratio: 1 / 1.4;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.certificate-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(229, 9, 20, 0.3);
+  z-index: 2;
+}
+
+.certificate-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.certificate-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.certificate-card:hover .certificate-image img {
+  transform: scale(1.1);
+}
+
+.certificate-badge {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: var(--netflix-red);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Styles */
+.modal {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  background: transparent;
+  border: none;
+}
+
+.modal-body {
+  padding: 0;
+  text-align: center;
+}
+
+.btn-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  filter: invert(1);
+  opacity: 0.8;
+  transition: all 0.3s;
+  background-size: 60%;
+}
+
+.btn-close:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .certificates-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .certificates-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .certificate-badge {
+    font-size: 1rem;
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .certificates-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .certificate-badge {
+    font-size: 0.8rem;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .modal-dialog {
+    margin: 10px;
+  }
+}
+/* Technical DNA Section */
+#technical-dna {
+  background: linear-gradient(135deg, #141414 0%, #1a1a1a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#technical-dna::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(229, 9, 20, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(229, 9, 20, 0.1) 0%,
+      transparent 50%
+    );
+}
+
+.section-subtitle {
+  font-family: "Bebas Neue", sans-serif;
+  color: var(--netflix-red);
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  letter-spacing: 2px;
+}
+
+.dna-helix {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.dna-strand {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.left-strand {
+  align-items: flex-end;
+  padding-right: 2rem;
+}
+
+.right-strand {
+  align-items: flex-start;
+  padding-left: 2rem;
+}
+
+.helix-connector {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--netflix-red),
+    transparent
+  );
+  animation: dnaPulse 3s infinite;
+}
+
+@keyframes dnaPulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 15px var(--netflix-red);
+  }
+}
+
+.dna-node {
+  background: rgba(30, 30, 30, 0.8);
+  border-radius: 15px;
+  padding: 1.5rem;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(229, 9, 20, 0.3);
+}
+
+.dna-node:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.2);
+  border-color: var(--netflix-red);
+}
+
+.dna-icon {
+  position: absolute;
+  top: -20px;
+  width: 40px;
+  height: 40px;
+  background: var(--netflix-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px var(--netflix-red);
+}
+
+.left-strand .dna-icon {
+  right: -20px;
+}
+
+.right-strand .dna-icon {
+  left: -20px;
+}
+
+.dna-node h3 {
+  color: var(--netflix-white);
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.dna-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.skill-bubble {
+  background: rgba(229, 9, 20, 0.2);
+  color: var(--netflix-white);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-bubble:hover {
+  background: rgba(229, 9, 20, 0.4);
+  transform: translateY(-3px);
+}
+
+.skill-bubble::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.skill-bubble:hover::before {
+  left: 100%;
+}
+
+.dna-quote {
+  text-align: center;
+  margin-top: 3rem;
+  font-style: italic;
+  color: var(--netflix-gray);
+  position: relative;
+}
+
+.dna-quote p {
+  position: relative;
+  display: inline-block;
+  padding: 0 2rem;
+}
+
+.dna-quote p::before,
+.dna-quote p::after {
+  content: '"';
+  position: absolute;
+  color: var(--netflix-red);
+  font-size: 2rem;
+  font-family: serif;
+}
+
+.dna-quote p::before {
+  left: 0;
+  top: -10px;
+}
+
+.dna-quote p::after {
+  right: 0;
+  bottom: -20px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .dna-strand {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .left-strand,
+  .right-strand {
+    align-items: center;
+    padding: 0;
+  }
+
+  .dna-node {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .helix-connector {
+    display: none;
+  }
+
+  .dna-helix {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .dna-icon {
+    top: -20px;
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 576px) {
+  .dna-node {
+    padding: 1.5rem 1rem;
+  }
+
+  .dna-skills {
+    justify-content: center;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+.auto-meme {
+  margin-top: 15px;
+  padding: 12px;
+  background: rgba(30, 30, 30, 0.7);
+  border-radius: 8px;
+  border-left: 3px solid var(--netflix-red);
+  max-width: 300px;
+}
+
+.auto-meme .meme-caption {
+  color: var(--netflix-red);
+  font-family: "Netflix Sans", sans-serif;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.inline-meme {
+  max-width: 100%;
+  border-radius: 6px;
+  border: 2px solid var(--netflix-red);
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.3);
+}
+
+/* SKILLS SECTION ANIMATIONS */
+.skill-meter {
+  background: rgba(20, 20, 20, 0.7);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--netflix-red);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-meter:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(229, 9, 20, 0.3);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.skill-title {
+  font-family: "Bebas Neue", sans-serif;
+  color: var(--netflix-white);
+  font-size: 1.5rem;
+  margin: 0;
+  display: inline-block;
+}
+
+.skill-description {
+  color: var(--netflix-gray);
+  font-size: 0.9rem;
+  margin: 0.3rem 0 0;
+}
+
+.skill-percentage {
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  color: var(--netflix-red);
+  font-size: 1.5rem;
+}
+
+.skill-bar-container {
+  margin: 1.5rem 0;
+}
+
+.skill-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--netflix-red), #ff6b6b);
+  border-radius: 4px;
+  position: relative;
+  transform-origin: left;
+  animation: progressGrow 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes progressGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.skill-progress::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
+  animation: progressShimmer 2.5s infinite;
+}
+
+@keyframes progressShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.skill-meme {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(229, 9, 20, 0.3);
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.meme-suggestion {
+  color: var(--netflix-red);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.rating-pill {
+  display: inline-block;
+  background: rgba(229, 9, 20, 0.2);
+  color: var(--netflix-red);
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-family: "Netflix Sans", sans-serif;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Hover effects for memes */
+.inline-meme {
+  max-width: 100%;
+  border-radius: 6px;
+  border: 2px solid var(--netflix-red);
+  box-shadow: 0 5px 15px rgba(229, 9, 20, 0.2);
+  transition: all 0.3s ease;
+}
+
+.inline-meme:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4);
+}
+.zentron-diary {
+  background: rgba(0, 30, 0, 0.2);
+  border: 1px dashed #00ff00;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.zentron-diary h4 {
+  color: #00ff00;
+  font-family: "Bebas Neue", sans-serif;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.diary-entry {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+}
+
+.diary-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.diary-text {
+  color: #00ff00;
+  font-style: italic;
+  margin-top: 1rem;
+  text-align: center;
 }
