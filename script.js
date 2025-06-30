@@ -1100,3 +1100,360 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 5000);
   });
 });
+
+// Add this to your existing JS
+document.addEventListener("DOMContentLoaded", function () {
+  // Animate cards sequentially
+  const cards = document.querySelectorAll(".episode-card");
+  cards.forEach((card, index) => {
+    setTimeout(() => {
+      card.style.opacity = 1;
+      card.style.transform = "translateY(0)";
+    }, 200 * index);
+  });
+
+  // Netflix-style hover effects
+  document.querySelectorAll(".episode-card").forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      card.style.transform = "translateY(-5px)";
+      card.style.boxShadow = "0 15px 30px rgba(229,9,20,0.5)";
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "translateY(0)";
+      card.style.boxShadow = "0 5px 15px rgba(229,9,20,0.3)";
+    });
+  });
+});
+
+// Replace scroll animations with this cleaner version
+function initScrollAnimations() {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.setAttribute("data-animate", "in-view");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll("[data-animate]").forEach((el) => {
+    observer.observe(el);
+  });
+}
+
+// Initialize on load
+document.addEventListener("DOMContentLoaded", initScrollAnimations);
+
+// Simplified GSAP initialization
+document.addEventListener("DOMContentLoaded", () => {
+  // Hero animation
+  gsap.from(".netflix-title", {
+    duration: 1.5,
+    opacity: 0,
+    y: 50,
+    ease: "power3.out",
+  });
+
+  // Section animations
+  gsap.utils.toArray(".content-section").forEach((section, i) => {
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top 80%",
+      onEnter: () => {
+        gsap.from(section.querySelectorAll(".episode-card, .confession-card"), {
+          duration: 0.8,
+          opacity: 0,
+          y: 30,
+          stagger: 0.15,
+          ease: "back.out(1.7)",
+        });
+      },
+    });
+  });
+
+  // Netflix-style button animations
+  gsap.utils.toArray(".savage-btn, .mode-btn").forEach((btn) => {
+    btn.addEventListener("mouseenter", () => {
+      gsap.to(btn, {
+        duration: 0.3,
+        scale: 1.05,
+        boxShadow: "0 0 15px rgba(229, 9, 20, 0.7)",
+        ease: "power2.out",
+      });
+    });
+    btn.addEventListener("mouseleave", () => {
+      gsap.to(btn, {
+        duration: 0.3,
+        scale: 1,
+        boxShadow: "none",
+        ease: "power2.out",
+      });
+    });
+  });
+});
+
+// Enhanced Netflix-style loading
+const loadingTL = gsap.timeline();
+loadingTL
+  .from(".b-logo", {
+    duration: 1,
+    scale: 0.8,
+    opacity: 0,
+    ease: "elastic.out(1, 0.5)",
+  })
+  .to(".loading-bar", {
+    duration: 2,
+    width: "100%",
+    ease: "power2.inOut",
+  })
+  .to("#loading-screen", {
+    duration: 0.5,
+    opacity: 0,
+    onComplete: () => {
+      document.getElementById("loading-screen").style.display = "none";
+      // Start hero animation
+      gsap.from(".hero-content", {
+        duration: 1,
+        opacity: 0,
+        y: 50,
+        ease: "power3.out",
+      });
+    },
+  });
+
+// Animation controller
+function initNetflixAnimations() {
+  // Animate all sections
+  document.querySelectorAll("[data-animate]").forEach((el) => {
+    ScrollTrigger.create({
+      trigger: el,
+      start: "top 85%",
+      onEnter: () => {
+        const delay = el.dataset.animateDelay || 0;
+        gsap.from(el, {
+          duration: 0.8,
+          opacity: 0,
+          y: 30,
+          delay: parseFloat(delay),
+          ease: "power2.out",
+          onComplete: () => {
+            el.removeAttribute("data-animate");
+          },
+        });
+      },
+    });
+  });
+
+  // Staggered child animations
+  document.querySelectorAll("[data-animate-stagger]").forEach((parent) => {
+    const children = parent.querySelectorAll(":scope > *");
+    const stagger = parseFloat(parent.dataset.animateStagger);
+
+    ScrollTrigger.create({
+      trigger: parent,
+      start: "top 80%",
+      onEnter: () => {
+        gsap.from(children, {
+          duration: 0.6,
+          opacity: 0,
+          y: 20,
+          stagger: stagger,
+          ease: "back.out(1.7)",
+        });
+      },
+    });
+  });
+}
+// Netflix-style season initialization
+function initUnofficialMode() {
+  // Add season navigation
+  const seasons = document.querySelectorAll(".content-section");
+  let currentSeason = 0;
+
+  // Season scrolling behavior
+  function scrollToSeason(index) {
+    gsap.to(window, {
+      scrollTo: {
+        y: seasons[index],
+        offsetY: 70,
+      },
+      duration: 0.8,
+      ease: "power2.inOut",
+    });
+  }
+
+  // Animate cards on scroll
+  gsap.utils.toArray(".episode-card, .confession-card").forEach((card, i) => {
+    ScrollTrigger.create({
+      trigger: card,
+      start: "top 85%",
+      onEnter: () => {
+        gsap.from(card, {
+          y: 50,
+          opacity: 0,
+          duration: 0.6,
+          delay: i * 0.1,
+          ease: "back.out(1.2)",
+        });
+      },
+    });
+  });
+
+  // Netflix-style hover effects
+  document
+    .querySelectorAll(".episode-card, .confession-card")
+    .forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        gsap.to(card, {
+          y: -5,
+          boxShadow: "0 12px 25px rgba(0,0,0,0.5)",
+          duration: 0.3,
+        });
+      });
+
+      card.addEventListener("mouseleave", () => {
+        gsap.to(card, {
+          y: 0,
+          boxShadow: "0 8px 16px rgba(0,0,0,0.3)",
+          duration: 0.3,
+        });
+      });
+    });
+
+  // Responsive meme handling
+  function handleMemes() {
+    document.querySelectorAll(".inline-meme").forEach((meme) => {
+      const isMobile = window.innerWidth < 768;
+      meme.style.maxHeight = isMobile ? "200px" : "300px";
+      meme.style.objectFit = "contain";
+    });
+  }
+
+  window.addEventListener("resize", handleMemes);
+  handleMemes();
+}
+
+// Initialize when unofficial mode is active
+if (document.getElementById("unofficialContent").style.display !== "none") {
+  initUnofficialMode();
+}
+
+// Enhanced JavaScript for Interactions
+document.addEventListener("DOMContentLoaded", function () {
+  // Review card hover effects
+  const reviewCards = document.querySelectorAll(".review-card");
+  reviewCards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      card.style.zIndex = 10;
+    });
+    card.addEventListener("mouseleave", () => {
+      card.style.zIndex = "";
+    });
+  });
+
+  // Struggle meter functionality
+  const slider = document.getElementById("unofficialRatingSlider");
+  const progress = document.querySelector(".slider-progress");
+  const emojiSteps = document.querySelectorAll(".emoji-step");
+  const output = document.getElementById("unofficialRatingOutput");
+  const statusMessage = output.querySelector(".status-message");
+  const statusDetails = output.querySelector(".status-details");
+  const feedbackBtn = document.getElementById("generateFeedback");
+  const dynamicFeedback = document.getElementById("dynamicFeedback");
+
+  // Struggle messages
+  const struggleMessages = [
+    {
+      level: 0,
+      msg: "Just opened IDE",
+      detail: "(Already questioning life choices)",
+    },
+    {
+      level: 20,
+      msg: "Hello World compiles!",
+      detail: "(Celebration lasts 3 seconds)",
+    },
+    { level: 42, msg: "The Answer to Life", detail: "(But not your bugs)" },
+    {
+      level: 60,
+      msg: "Code works but no idea why",
+      detail: "(Don't touch anything!)",
+    },
+    {
+      level: 75,
+      msg: "Google thinks I'm a bot",
+      detail: "(Search limit reached)",
+    },
+    {
+      level: 90,
+      msg: "Became Stack Overflow",
+      detail: "(People now ask YOU questions)",
+    },
+    {
+      level: 100,
+      msg: "Transcended to Digital Deity",
+      detail: "(Your code has its own religion)",
+    },
+  ];
+
+  // Developer excuses
+  const devExcuses = [
+    "It was working yesterday!",
+    "That's not a bug, it's a feature",
+    "Must be a browser issue",
+    "The compiler hates me",
+    "I blame the framework",
+    "This worked in the tutorial",
+    "The cosmic rays did it",
+    "My rubber duck didn't warn me",
+    "The deadline moved my code",
+    "GitHub Copilot betrayed me",
+  ];
+
+  // Update slider
+  function updateSlider() {
+    const value = slider.value;
+    progress.style.right = `calc(100% - ${value}%)`;
+
+    // Update active emoji
+    emojiSteps.forEach((step) => {
+      const stepValue = parseInt(step.dataset.value);
+      step.classList.toggle("active", value >= stepValue);
+    });
+
+    // Find appropriate message
+    const msgObj = struggleMessages.reduce((prev, curr) =>
+      value >= curr.level ? curr : prev
+    );
+
+    statusMessage.textContent = `You're at ${value}: ${msgObj.msg}`;
+    statusDetails.textContent = msgObj.detail;
+  }
+
+  // Initialize slider
+  slider.addEventListener("input", updateSlider);
+  updateSlider();
+
+  // Emoji step click handler
+  emojiSteps.forEach((step) => {
+    step.addEventListener("click", () => {
+      slider.value = step.dataset.value;
+      updateSlider();
+    });
+  });
+
+  // Generate random excuse
+  feedbackBtn.addEventListener("click", () => {
+    const randomExcuse =
+      devExcuses[Math.floor(Math.random() * devExcuses.length)];
+    dynamicFeedback.textContent = `"${randomExcuse}"`;
+    dynamicFeedback.classList.add("show");
+
+    setTimeout(() => {
+      dynamicFeedback.classList.remove("show");
+    }, 3000);
+  });
+});
