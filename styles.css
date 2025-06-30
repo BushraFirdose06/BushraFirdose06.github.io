@@ -669,9 +669,16 @@ html {
   color: var(--netflix-white);
 }
 
+.episode-card, .confession-card {
+  margin: 10px 0; /* Space between cards */
+  padding: 12px; /* Reduced padding */
+  border: 1px solid rgba(229, 9, 20, 0.2); /* Minimal border */
+  border-radius: 8px; /* Slightly rounded corners */
+}
 /* Unofficial mode specific styles */
 .unofficial-mode {
   display: none;
+   padding: 0 5px; /* Minimal side padding */
 }
 
 .unofficial-header {
@@ -4647,5 +4654,87 @@ code, pre, .glitch-text {
   
   .confession-text {
     font-size: 1rem;
+  }
+}
+
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .unofficial-mode {
+    padding: 0 8px; /* Slightly more padding on very small screens */
+  }
+  
+  .episode-card, .confession-card {
+    margin: 8px 0;
+    padding: 10px;
+    border-width: 0.5px; /* Even thinner border on mobile */
+  }
+  
+  .season-title, .episode-title {
+    font-size: 1.2rem; /* Slightly smaller titles */
+    margin-bottom: 8px;
+  }
+  
+  .episode-stats {
+    flex-wrap: wrap; /* Allow stats to wrap */
+  }
+  
+  .stat-bubble {
+    margin: 4px;
+    padding: 4px 6px;
+    font-size: 0.8rem;
+  }
+  
+  .inline-meme {
+    max-width: 100%; /* Ensure memes don't overflow */
+    height: auto;
+    margin: 6px 0;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .unofficial-header {
+    padding: 15px 5px;
+  }
+  
+  .unofficial-title {
+    font-size: 1.5rem;
+  }
+  
+  .unofficial-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .blunder-list li {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+  }
+}
+
+
+.meme-container {
+  max-width: 95vw; /* Don't let it touch screen edges */
+  margin: 0 auto;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .skill-meter {
+    margin: 5px 0;
+  }
+  
+  .skill-title {
+    flex-direction: column;
+  }
+  
+  .skill-items {
+    flex-wrap: wrap;
+  }
+  
+  .skill-item {
+    margin: 3px;
+    padding: 3px 5px;
+    font-size: 0.8rem;
   }
 }
