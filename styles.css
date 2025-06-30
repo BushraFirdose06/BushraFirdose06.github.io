@@ -790,16 +790,6 @@ html {
 }
 
 /* Add a subtle digital noise overlay */
-.episode-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-    pointer-events: none;
-  mix-blend-mode: overlay;
-}
 
 .confession-card {
   background: rgba(30, 30, 30, 0.8);
@@ -811,21 +801,6 @@ html {
   overflow: hidden;
 }
 
-.confession-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(229, 9, 20, 0.1),
-    transparent
-  );
-  z-index: -1;
-}
 
 .confession-text {
   color: var(--netflix-white);
@@ -3895,21 +3870,7 @@ body {
   transform: scale(1.02);
   box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4);
 }
-.zentron-diary {
-  background: rgba(0, 30, 0, 0.2);
-  border: 1px dashed #00ff00;
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-top: 2rem;
-}
 
-.zentron-diary h4 {
-  color: #00ff00;
-  font-family: "Bebas Neue", sans-serif;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
-}
 
 .diary-entry {
   margin-bottom: 1.5rem;
@@ -4320,3 +4281,371 @@ button, .mode-btn, .meme-trigger {
   left: 100%;
 }
 
+/* Unofficial Mode Overrides */
+.unofficial-mode {
+  background: var(--netflix-dark) !important;
+}
+
+.unofficial-header {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")
+      no-repeat center center/cover !important;
+  border-bottom: 4px solid var(--netflix-red) !important;
+  padding: 5rem 2rem !important;
+}
+
+.unofficial-title {
+  color: var(--netflix-white) !important;
+  text-shadow: 0 0 15px rgba(229, 9, 20, 0.8) !important;
+  font-size: clamp(2.5rem, 6vw, 4rem) !important;
+}
+
+.unofficial-subtitle {
+  color: var(--netflix-white) !important;
+  opacity: 0.9 !important;
+}
+
+.now-streaming {
+  background: var(--netflix-red) !important;
+  color: var(--netflix-white) !important;
+}
+
+.season-title {
+  border-left: 4px solid var(--netflix-red) !important;
+  color: var(--netflix-white) !important;
+  font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+  padding-left: 1rem !important;
+  margin: 2rem 0 1.5rem !important;
+}
+
+.episode-card {
+  background: rgba(30, 30, 30, 0.9) !important;
+  border-left: 5px solid var(--netflix-red) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+.episode-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.3) !important;
+}
+
+.episode-title {
+  font-family: "Netflix Sans", sans-serif !important;
+  color: var(--netflix-white) !important;
+  animation: none !important;
+}
+
+.episode-title:hover {
+  animation: none !important;
+  color: var(--netflix-red) !important;
+}
+
+.stat-bubble {
+  background: rgba(229, 9, 20, 0.2) !important;
+  color: var(--netflix-white) !important;
+}
+
+.confession-card {
+  background: rgba(40, 40, 40, 0.9) !important;
+  border-left: 5px solid var(--netflix-red) !important;
+}
+
+.confession-number {
+  color: var(--netflix-red) !important;
+}
+
+.confession-text {
+  color: var(--netflix-white) !important;
+}
+
+.savage-btn {
+  background: var(--netflix-red) !important;
+  color: var(--netflix-white) !important;
+}
+
+.savage-btn:hover {
+  background: var(--netflix-red-dark) !important;
+}
+
+.inline-meme {
+  border: 2px solid var(--netflix-red) !important;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.3) !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .unofficial-header {
+    padding: 4rem 1.5rem !important;
+  }
+  
+  .episode-card {
+    padding: 1.2rem !important;
+  }
+  
+  .episode-stats {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+  
+  .confession-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+  }
+  
+  .confession-actions {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  
+  .savage-btn {
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+/* Remove all green matrix styles */
+.episode-card::before,
+.confession-card::before,
+.skill-meter::before,
+.zentron-diary {
+  display: none !important;
+}
+
+/* Fix any remaining green elements */
+code, pre, .glitch-text {
+  color: var(--netflix-white) !important;
+  border-color: var(--netflix-red) !important;
+}
+
+/* Make sure all text is readable */
+.unofficial-mode * {
+  color: var(--netflix-white) !important;
+}
+
+/* Ensure contrast for accessibility */
+.episode-stats, .confession-meta, .meme-caption {
+  color: var(--netflix-gray) !important;
+}
+
+/* Rating slider adjustments */
+.rating-slider {
+  background: linear-gradient(
+    90deg,
+    var(--netflix-red),
+    #ff6b6b,
+    var(--netflix-white),
+    #9d00ff,
+    var(--neon-pink)
+  ) !important;
+}
+
+.rating-slider::-webkit-slider-thumb {
+  border: 3px solid var(--netflix-red) !important;
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.8) !important;
+}
+
+/* Status message styling */
+.status-message {
+  color: var(--netflix-white) !important;
+}
+
+.status-details {
+  color: var(--netflix-gray) !important;
+}
+
+/* Emoji track styling */
+.emoji-track span {
+  color: var(--netflix-white) !important;
+  text-shadow: 0 0 5px rgba(229, 9, 20, 0.5) !important;
+}
+
+/* Dynamic feedback box */
+#dynamicFeedback {
+  background: rgba(30, 30, 30, 0.9) !important;
+  border-left: 3px solid var(--netflix-red) !important;
+  color: var(--netflix-white) !important;
+}
+
+/* Season Section Styling */
+.content-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.season-title {
+  font-family: "Netflix Sans", sans-serif;
+  font-size: 2.5rem;
+  color: #e50914;
+  text-align: center;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #e50914;
+  padding-bottom: 1rem;
+  display: inline-block;
+}
+
+.season-subtitle {
+  text-align: center;
+  font-style: italic;
+  color: #8c8c8c;
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+}
+
+/* Episode Card Styling */
+.episode-card {
+  background: #1f1f1f;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  border-left: 5px solid #e50914;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.episode-title {
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-family: "Netflix Sans", sans-serif;
+}
+
+.episode-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-bubble {
+  background: rgba(229, 9, 20, 0.2);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Meme Styling */
+.meme-container {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.episode-meme {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 2px solid #e50914;
+  box-shadow: 0 5px 15px rgba(229, 9, 20, 0.2);
+}
+
+.meme-caption {
+  color: #8c8c8c;
+  font-style: italic;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Content Styling */
+.episode-content {
+  margin: 1.5rem 0;
+}
+
+.highlight-list {
+  padding-left: 1.5rem;
+}
+
+.highlight-list li {
+  margin-bottom: 0.8rem;
+  color: #e5e5e5;
+  position: relative;
+}
+
+.highlight-list li::before {
+  content: "💥";
+  position: absolute;
+  left: -1.5rem;
+}
+
+/* Review Section */
+.review-section {
+  background: rgba(20, 20, 20, 0.7);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.review-section h4 {
+  color: #e50914;
+  margin-bottom: 0.5rem;
+}
+
+.review-section p {
+  color: #e5e5e5;
+  margin-bottom: 1rem;
+}
+
+.reaction-image {
+  max-width: 200px;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+/* Confession Card */
+.confession-card {
+  background: #1f1f1f;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 2px dashed #e50914;
+}
+
+.confession-text {
+  color: #e5e5e5;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.thought {
+  color: #8c8c8c;
+  font-style: italic;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .season-title {
+    font-size: 2rem;
+  }
+  
+  .season-subtitle {
+    font-size: 1rem;
+  }
+  
+  .episode-card {
+    padding: 1.5rem;
+  }
+  
+  .episode-title {
+    font-size: 1.5rem;
+  }
+  
+  .episode-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .stat-bubble {
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+  
+  .confession-card {
+    padding: 1.5rem;
+  }
+  
+  .confession-text {
+    font-size: 1rem;
+  }
+}
