@@ -10,7 +10,6 @@
   --card-border: 1px solid rgba(255, 255, 255, 0.1);
   --glow: 0 0 15px rgba(229, 9, 20, 0.8);
   --neon-pink: #ff00ff;
-  --netflix-gray: #a0a0a0;
   --neon-purple: #9d00ff;
   --background-dark: #141414;
   --text-light: #e5e5e5;
@@ -19,8 +18,190 @@
   --hover-bg: #2a2a2a;
   --neon-pink: #f1055f;
   --netflix-white: #e5e5e5;
-  --netflix-gray: #8c8c8c;
   --background-dark: #141414;
+   --animate-duration: 0.8s;
+  --animate-delay: 0.1s;
+  --netflix-ease: cubic-bezier(0.33, 1, 0.68, 1);
+  --netflix-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.season-title {
+  animation: 
+    titleDrop 0.8s var(--netflix-bounce) 0.3s forwards,
+    titleGlow 3s ease-in-out infinite alternate;
+  opacity: 0;
+  transform: translateY(-40px);
+}
+
+@keyframes titleDrop {
+  0% { opacity: 0; transform: translateY(-40px); }
+  80% { transform: translateY(5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes titleGlow {
+  0% { text-shadow: 0 0 15px rgba(229,9,20,0.3); }
+  100% { text-shadow: 0 0 30px rgba(229,9,20,0.7); }
+}
+
+.episode-card {
+  animation: 
+    cardRise 0.6s var(--netflix-ease) forwards;
+  opacity: 0;
+  transform: translateY(50px) rotateZ(1deg);
+  animation-delay: calc(var(--order) * 0.1s);
+}
+
+@keyframes cardRise {
+  0% { opacity: 0; transform: translateY(50px) rotateZ(1deg); }
+  100% { opacity: 1; transform: translateY(0) rotateZ(0); }
+}
+.episode-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+
+@media (hover: hover) { /* Only for devices that support hover */
+  .episode-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    z-index: 2;
+  }
+  
+
+  /* Zentron rebellion animation */
+.zentron-response img {
+  animation: 
+    glitch 2s infinite alternate,
+    float 4s ease-in-out infinite;
+}
+
+@keyframes glitch {
+  0% { filter: hue-rotate(0); }
+  20% { transform: translate(2px, -1px); }
+  40% { filter: hue-rotate(10deg); }
+  60% { transform: translate(-1px, 2px); }
+  80% { filter: hue-rotate(-5deg); }
+  100% { transform: translate(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.confession-card {
+  animation: 
+    typewriter 1s steps(40) 0.5s forwards,
+    blinkCaret 0.75s step-end infinite alternate;
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid var(--netflix-red);
+}
+
+@keyframes typewriter {
+  from { width: 0; opacity: 1; }
+  to { width: 100%; opacity: 1; }
+}
+
+@keyframes blinkCaret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--netflix-red); }
+}
+
+
+@media (max-width: 768px) {
+  /* Simplify animations on mobile */
+  .unofficial-header {
+    animation: netflixReveal 0.8s ease-out forwards;
+  }
+  
+  .season-title {
+    animation: 
+      titleDropMobile 0.6s ease-out 0.2s forwards,
+      titleGlow 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes titleDropMobile {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Disable complex animations */
+  .zentron-response img,
+  .confession-card {
+    animation: none !important;
+  }
+}
+
+/* Meme hover effect (desktop only) */
+@media (hover: hover) {
+  .inline-meme {
+    transition: transform 0.4s var(--netflix-bounce);
+  }
+  
+  .inline-meme:hover {
+    transform: 
+      scale(1.05) 
+      rotateZ(1deg) 
+      translateY(-5px);
+    box-shadow: 
+      0 10px 25px rgba(229,9,20,0.3),
+      0 0 0 2px var(--netflix-red);
+  }
+}
+
+/* Struggle meter interaction */
+.rating-slider:active ~ .emoji-track span {
+  animation: bounce 0.5s var(--netflix-bounce);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+
+
+  .episode-card:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Base animation class */
+[data-animate] {
+  opacity: 0;
+  transition: 
+    opacity var(--animate-duration) ease-out,
+    transform var(--animate-duration) ease-out;
+}
+
+/* Animation triggers */
+[data-animate="fade-up"] {
+  transform: translateY(30px);
+}
+
+[data-animate="fade-down"] {
+  transform: translateY(-30px);
+}
+
+[data-animate="fade-left"] {
+  transform: translateX(30px);
+}
+
+[data-animate="fade-right"] {
+  transform: translateX(-30px);
+}
+
+[data-animate="zoom-in"] {
+  transform: scale(0.95);
+}
+
+/* Active state when in view */
+[data-animate].animate-active {
+  opacity: 1;
+  transform: none;
 }
 
 /* Enhanced mode selector */
@@ -142,17 +323,6 @@
   background: rgba(229, 9, 20, 0.3);
 }
 
-.mode-indicator {
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background: var(--netflix-red);
-  transition: width 0.3s;
-}
-
 .mode-btn:hover .mode-indicator {
   width: 80%;
 }
@@ -245,6 +415,32 @@
   position: relative;
   z-index: 3; /* Higher than any other elements */
   height: calc(100vh - 80px); /* Adjust height accounting for padding */
+}
+
+/* Add to :root */
+:root {
+  --netflix-ease: cubic-bezier(0.33, 1, 0.68, 1);
+  --netflix-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Hero intro animation */
+.unofficial-header {
+  animation: 
+    netflixReveal 1.2s var(--netflix-ease) forwards,
+    subtlePan 30s linear infinite;
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+@keyframes netflixReveal {
+  0% { opacity: 0; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes subtlePan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Reviews Section Styles */
@@ -423,7 +619,6 @@ dialog {
   max-width: 500px;
   width: 90%;
   text-align: center;
-  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -2084,23 +2279,6 @@ body {
   }
 }
 
-@keyframes orbit {
-  0% {
-    transform: rotate(0deg) translateX(15px) rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg) translateX(15px) rotate(-360deg);
-  }
-}
-
-.orbit {
-  animation: orbit 6s linear infinite;
-  animation-delay: var(--orbit-delay, 0s);
-}
-
-.pulse {
-  animation: pulse 2s infinite ease-in-out;
-}
 
 /* Add to your CSS */
 @media (prefers-reduced-motion: reduce) {
@@ -3407,11 +3585,6 @@ body {
   border: 1px solid rgba(229, 9, 20, 0.3);
 }
 
-.dna-node:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.2);
-  border-color: var(--netflix-red);
-}
 
 .dna-icon {
   position: absolute;
@@ -3482,9 +3655,6 @@ body {
   transition: left 0.5s;
 }
 
-.skill-bubble:hover::before {
-  left: 100%;
-}
 
 .dna-quote {
   text-align: center;
@@ -3850,7 +4020,6 @@ button, .mode-btn, .meme-trigger {
 <!-- For critical above-the-fold CSS -->
   /* Add minimal critical CSS here */
 .loading-screen, .hero {
-    position: fixed;
     width: 100%;
     height: 100vh;
   }
@@ -3858,8 +4027,7 @@ button, .mode-btn, .meme-trigger {
 
   
 .mobile-menu-toggle {
-  display: none;
-  position: fixed;
+  display: none;  
   top: 20px;
   right: 20px;
   z-index: 1000;
@@ -4506,9 +4674,6 @@ code, pre, .glitch-text {
   animation: netflixIntro 0.8s ease-out forwards;
 }
 
-.episode-card:hover {
-  animation: cardHover 0.3s ease-out forwards;
-}
 
 /* Stats Bubbles */
 .stat-bubble {
@@ -4539,11 +4704,6 @@ code, pre, .glitch-text {
               box-shadow 0.4s ease;
 }
 
-.episode-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px -8px rgba(229, 9, 20, 0.3);
-  z-index: 2;
-}
 
 /* Subtle glow effect */
 .episode-card::after {
@@ -4562,9 +4722,7 @@ code, pre, .glitch-text {
   transition: opacity 0.4s ease;
 }
 
-.episode-card:hover::after {
-  opacity: 1;
-}
+
 
 /* Add to typography */
 .section-title {
@@ -4644,10 +4802,7 @@ code, pre, .glitch-text {
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.episode-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.3);
-}
+
 
 /* Netflix-style loading animation */
 @keyframes netflixLoader {
@@ -5307,3 +5462,77 @@ code, pre, .glitch-text {
   }
 }
 
+@keyframes netflixLoader {
+  0% { 
+    transform: scaleX(0);
+    opacity: 0.5;
+  }
+  100% { 
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.loading-bar {
+  transform-origin: left;
+  animation: 
+    netflixLoader 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+    pulse 2s 1.2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.inline-meme {
+  transform: translateZ(0); /* GPU acceleration */
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) {
+  .inline-meme:hover {
+    transform: scale(1.03) translateY(-4px);
+  }
+}
+.netflix-title {
+  animation: 
+    textGlow 3s ease-in-out infinite alternate,
+    fadeIn 1s ease-out forwards;
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 10px rgba(229, 9, 20, 0.6); }
+  100% { text-shadow: 0 0 20px rgba(229, 9, 20, 0.9); }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --animate-duration: 0.6s; /* Faster on mobile */
+  }
+  
+  /* Disable complex animations on mobile */
+  [data-animate-mobile="false"] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  
+  /* Simpler hover states */
+  .episode-card {
+    transition: none;
+  }
+}
+
+/* Will-change hints */
+.episode-card, .inline-meme {
+  will-change: transform, opacity;
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
