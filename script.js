@@ -1480,3 +1480,865 @@ document.addEventListener("DOMContentLoaded", () => {
 
   animateElements.forEach((el) => observer.observe(el));
 });
+
+// Mobile viewport height fix
+function setViewportHeight() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+}
+
+// Initialize
+setViewportHeight();
+window.addEventListener("resize", setViewportHeight);
+
+// Touch device detection
+const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints;
+
+if (isTouchDevice) {
+  document.body.classList.add("touch-device");
+
+  // Add touch-specific event listeners
+  document.querySelectorAll(".project-item").forEach((item) => {
+    item.addEventListener(
+      "touchstart",
+      function () {
+        this.classList.add("touched");
+      },
+      { passive: true }
+    );
+
+    item.addEventListener(
+      "touchend",
+      function () {
+        this.classList.remove("touched");
+      },
+      { passive: true }
+    );
+  });
+}
+
+// Mobile menu toggle (if you add one)
+const mobileMenuToggle = document.createElement("button");
+mobileMenuToggle.className = "mobile-menu-toggle";
+mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+document.body.appendChild(mobileMenuToggle);
+
+mobileMenuToggle.addEventListener("click", function () {
+  document.body.classList.toggle("mobile-menu-open");
+});
+
+// Interactive elements for Seasons 3 and 4
+document.addEventListener("DOMContentLoaded", function () {
+  // Zentron secret button
+  const zentronBtn = document.getElementById("zentronSecretBtn");
+  if (zentronBtn) {
+    zentronBtn.addEventListener("click", function () {
+      const secret = document.getElementById("zentronSecret");
+      secret.style.display = secret.style.display === "none" ? "block" : "none";
+      this.textContent =
+        secret.style.display === "none"
+          ? "CLICK FOR ZENTRON'S SECRET THOUGHTS"
+          : "OK THAT'S ENOUGH";
+
+      if (secret.style.display === "block") {
+        gsap.from(secret, {
+          opacity: 0,
+          y: 20,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+        });
+      }
+    });
+  }
+
+  // Interactive highlights
+  document.querySelectorAll(".interactive-highlight").forEach((highlight) => {
+    highlight.addEventListener("click", function (e) {
+      e.preventDefault();
+      const memeUrl = this.getAttribute("data-meme");
+      const memeTitle = this.getAttribute("data-title") || "Meme";
+
+      if (memeUrl) {
+        openMemeModal(memeUrl, memeTitle);
+      }
+
+      // For confession memes
+      const memeContainer =
+        this.closest(".confession-card")?.querySelector(".confession-meme");
+      if (memeContainer) {
+        memeContainer.style.display =
+          memeContainer.style.display === "none" ? "block" : "none";
+
+        if (memeContainer.style.display === "block") {
+          gsap.from(memeContainer, {
+            opacity: 0,
+            y: 20,
+            duration: 0.5,
+            ease: "back.out(1.7)",
+          });
+        }
+      }
+    });
+  });
+
+  // Animate cards on scroll
+  const animateOnScroll = () => {
+    const cards = document.querySelectorAll(".code-war-card, .zentron-episode");
+    cards.forEach((card, index) => {
+      const cardTop = card.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (cardTop < windowHeight - 100) {
+        setTimeout(() => {
+          card.style.opacity = "1";
+          card.style.transform = "translateY(0)";
+        }, index * 150);
+      }
+    });
+  };
+
+  // Initial check
+  animateOnScroll();
+
+  // Check on scroll
+  window.addEventListener("scroll", animateOnScroll);
+});
+
+// Meme modal function
+function openMemeModal(src, title) {
+  const memeModal = document.getElementById("memeModal");
+  const modalMeme = document.getElementById("modalMeme");
+  const memeCaption = document.getElementById("memeCaption");
+
+  if (memeModal && modalMeme && memeCaption) {
+    modalMeme.src = src;
+    memeCaption.textContent = title;
+    memeModal.style.display = "block";
+
+    // Animate in
+    gsap.from(memeModal, { opacity: 0, duration: 0.3 });
+    gsap.from(modalMeme, {
+      scale: 0.8,
+      opacity: 0,
+      duration: 0.5,
+      ease: "back.out(1.7)",
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const img = new Image();
+  img.src = "Images/debug.gif";
+  img.onload = function () {
+    console.log("Image loaded successfully");
+  };
+  img.onerror = function () {
+    console.error("Error loading image - check the path");
+  };
+});
+
+// Add this to your JS
+document.querySelectorAll(".meme-trigger-text").forEach((trigger) => {
+  trigger.addEventListener("click", function () {
+    const memeGrid = this.nextElementSibling;
+    memeGrid.style.display =
+      memeGrid.style.display === "none" ? "grid" : "none";
+
+    // Animate when showing
+    if (memeGrid.style.display === "grid") {
+      gsap.from(memeGrid, {
+        opacity: 0,
+        y: 20,
+        duration: 0.5,
+        ease: "back.out(1.7)",
+      });
+    }
+  });
+});
+
+// Add this to your existing JavaScript
+document.addEventListener("DOMContentLoaded", function () {
+  // Reaction button functionality
+  const regainControlBtn = document.getElementById("regainControlBtn");
+  if (regainControlBtn) {
+    regainControlBtn.addEventListener("click", function () {
+      const reactionDiv = document.getElementById("regainControlReaction");
+      const isHidden = reactionDiv.style.display === "none";
+
+      reactionDiv.style.display = isHidden ? "block" : "none";
+      this.textContent = isHidden ? "[Hide Reaction]" : "[See My Reaction]";
+
+      if (isHidden) {
+        // Animate in
+        gsap.from(reactionDiv, {
+          opacity: 0,
+          y: 20,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+        });
+      }
+    });
+  }
+
+  // Keep your existing zentronSecretBtn functionality
+  const zentronSecretBtn = document.getElementById("zentronSecretBtn");
+  if (zentronSecretBtn) {
+    zentronSecretBtn.addEventListener("click", function () {
+      const secretDiv = document.getElementById("zentronSecret");
+      const isHidden = secretDiv.style.display === "none";
+
+      secretDiv.style.display = isHidden ? "block" : "none";
+      this.textContent = isHidden
+        ? "HIDE ZENTRON'S THOUGHTS"
+        : "CLICK FOR ZENTRON'S SECRET THOUGHTS";
+
+      if (isHidden) {
+        gsap.from(secretDiv, {
+          opacity: 0,
+          y: 20,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+        });
+      }
+    });
+  }
+});
+document.addEventListener("DOMContentLoaded", function () {
+  // Reaction buttons
+  document.querySelectorAll(".reaction-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const targetId = this.getAttribute("data-target");
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        const isHidden =
+          targetElement.style.display === "none" ||
+          !targetElement.style.display;
+
+        if (isHidden) {
+          targetElement.style.display = "block";
+          gsap.from(targetElement, {
+            opacity: 0,
+            y: 20,
+            duration: 0.5,
+            ease: "back.out(1.7)",
+          });
+          this.textContent = this.textContent.replace("See", "Hide");
+        } else {
+          targetElement.style.display = "none";
+          this.textContent = this.textContent.replace("Hide", "See");
+        }
+      }
+    });
+  });
+
+  // Savage buttons (toggle content)
+  document.querySelectorAll(".savage-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const targetId = this.id.replace("Btn", "");
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        const isHidden =
+          targetElement.style.display === "none" ||
+          !targetElement.style.display;
+
+        if (isHidden) {
+          targetElement.style.display = "block";
+          gsap.from(targetElement, {
+            opacity: 0,
+            y: 20,
+            duration: 0.5,
+            ease: "back.out(1.7)",
+          });
+          this.textContent = this.textContent.replace("CLICK", "HIDE");
+        } else {
+          targetElement.style.display = "none";
+          this.textContent = this.textContent.replace("HIDE", "CLICK");
+        }
+      }
+    });
+  });
+
+  // Meme hover effects
+  document.querySelectorAll(".inline-meme").forEach((meme) => {
+    meme.addEventListener("mouseenter", function () {
+      gsap.to(this, {
+        scale: 1.05,
+        boxShadow: "0 0 20px rgba(229,9,20,0.6)",
+        duration: 0.3,
+      });
+    });
+
+    meme.addEventListener("mouseleave", function () {
+      gsap.to(this, {
+        scale: 1,
+        boxShadow: "0 0 10px rgba(229,9,20,0.3)",
+        duration: 0.3,
+      });
+    });
+
+    // Click to enlarge
+    meme.addEventListener("click", function () {
+      const src = this.getAttribute("src") || this.getAttribute("data-meme");
+      const title =
+        this.getAttribute("alt") || this.getAttribute("data-title") || "Meme";
+
+      if (src) {
+        openMemeModal(src, title);
+      }
+    });
+  });
+
+  // Netflix hover effect for cards
+  document.querySelectorAll(".netflix-hover").forEach((card) => {
+    card.addEventListener("mouseenter", function () {
+      gsap.to(this, {
+        y: -5,
+        boxShadow: "0 10px 20px rgba(229,9,20,0.3)",
+        duration: 0.3,
+      });
+    });
+
+    card.addEventListener("mouseleave", function () {
+      gsap.to(this, {
+        y: 0,
+        boxShadow: "none",
+        duration: 0.3,
+      });
+    });
+  });
+
+  // Meme modal functionality
+  function openMemeModal(src, title) {
+    const modal = document.createElement("div");
+    modal.className = "meme-modal";
+    modal.innerHTML = `
+      <span class="close-modal">&times;</span>
+      <img class="modal-content" src="${src}" alt="${title}">
+      <div class="meme-caption">${title}</div>
+    `;
+
+    document.body.appendChild(modal);
+    document.body.style.overflow = "hidden";
+
+    // Close modal
+    modal.querySelector(".close-modal").addEventListener("click", function () {
+      document.body.removeChild(modal);
+      document.body.style.overflow = "";
+    });
+
+    // Close when clicking outside
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        document.body.removeChild(modal);
+        document.body.style.overflow = "";
+      }
+    });
+
+    // Animate in
+    gsap.from(modal, {
+      opacity: 0,
+      duration: 0.3,
+    });
+
+    gsap.from(modal.querySelector(".modal-content"), {
+      scale: 0.8,
+      opacity: 0,
+      duration: 0.5,
+      ease: "back.out(1.7)",
+    });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Reaction buttons
+  document.querySelectorAll(".reaction-btn, .netflix-btn").forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("data-target");
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        if (
+          targetElement.style.display === "none" ||
+          !targetElement.style.display
+        ) {
+          // Show with animation
+          targetElement.style.display = "block";
+          gsap.from(targetElement, {
+            opacity: 0,
+            y: 20,
+            duration: 0.5,
+            ease: "back.out(1.7)",
+          });
+
+          // Change button text if it has btn-text span
+          const btnText = this.querySelector(".btn-text");
+          if (btnText) {
+            btnText.textContent = btnText.textContent.includes("HIDE")
+              ? btnText.textContent.replace("HIDE", "SHOW")
+              : btnText.textContent.replace("SHOW", "HIDE");
+          }
+        } else {
+          // Hide
+          targetElement.style.display = "none";
+        }
+      }
+    });
+  });
+
+  // Truth button
+  const truthBtn = document.getElementById("truthBtn");
+  const truthText = document.getElementById("truthText");
+
+  if (truthBtn && truthText) {
+    truthBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (truthText.style.display === "none" || !truthText.style.display) {
+        truthText.style.display = "block";
+        gsap.from(truthText, {
+          opacity: 0,
+          y: 20,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+        });
+        this.querySelector(".btn-text").textContent = "OK THAT'S ENOUGH";
+      } else {
+        truthText.style.display = "none";
+        this.querySelector(".btn-text").textContent = "REVEAL THE TRUTH";
+      }
+    });
+  }
+
+  // Netflix hover effect
+  document.querySelectorAll(".netflix-hover").forEach((item) => {
+    item.addEventListener("mouseenter", function () {
+      const shine = document.createElement("div");
+      shine.className = "shine-effect";
+      shine.style.position = "absolute";
+      shine.style.top = "0";
+      shine.style.left = "-100%";
+      shine.style.width = "100%";
+      shine.style.height = "100%";
+      shine.style.background =
+        "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)";
+      shine.style.transition = "left 0.5s";
+      this.appendChild(shine);
+
+      setTimeout(() => {
+        shine.style.left = "100%";
+      }, 50);
+
+      setTimeout(() => {
+        if (this.contains(shine)) {
+          this.removeChild(shine);
+        }
+      }, 550);
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  // Toggle professor reaction
+  const professorBtn = document.getElementById("professorReactionBtn");
+  const professorReaction = document.getElementById("professorReaction");
+
+  if (professorBtn && professorReaction) {
+    professorBtn.addEventListener("click", function () {
+      const isHidden = professorReaction.style.display !== "block";
+
+      if (isHidden) {
+        professorReaction.style.display = "block";
+        gsap.from(professorReaction, {
+          opacity: 0,
+          y: 20,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+        });
+        professorBtn.innerHTML =
+          '<span class="btn-text">HIDE REACTION</span><span class="btn-emoji">🙈</span>';
+      } else {
+        professorReaction.style.display = "none";
+        professorBtn.innerHTML =
+          '<span class="btn-text">SHOW PROFESSOR\'S REACTION</span><span class="btn-emoji">😱</span>';
+      }
+    });
+  }
+
+  // Toggle debugging tapes
+  const debuggingBtn = document.getElementById("debuggingTapesBtn");
+  const debuggingTapes = document.getElementById("debuggingTapes");
+
+  if (debuggingBtn && debuggingTapes) {
+    debuggingBtn.addEventListener("click", function () {
+      const isHidden = debuggingTapes.style.display !== "block";
+
+      if (isHidden) {
+        debuggingTapes.style.display = "block";
+        gsap.from(debuggingTapes, {
+          opacity: 0,
+          y: 20,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+        });
+        debuggingBtn.innerHTML =
+          '<span class="btn-text">STOP PLAYBACK</span><span class="btn-emoji">⏹️</span>';
+      } else {
+        debuggingTapes.style.display = "none";
+        debuggingBtn.innerHTML =
+          '<span class="btn-text">PLAY DEBUGGING TAPES</span><span class="btn-emoji">🎥</span>';
+      }
+    });
+  }
+
+  // Toggle arduino outtakes
+  const arduinoBtn = document.getElementById("arduinoOuttakesBtn");
+  const arduinoOuttakes = document.getElementById("arduinoOuttakes");
+
+  if (arduinoBtn && arduinoOuttakes) {
+    arduinoBtn.addEventListener("click", function () {
+      const isHidden = arduinoOuttakes.style.display !== "block";
+
+      if (isHidden) {
+        arduinoOuttakes.style.display = "block";
+        gsap.from(arduinoOuttakes, {
+          opacity: 0,
+          y: 20,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+        });
+        arduinoBtn.innerHTML =
+          '<span class="btn-text">STOP OUTTAKES</span><span class="btn-emoji">✋</span>';
+      } else {
+        arduinoOuttakes.style.display = "none";
+        arduinoBtn.innerHTML =
+          '<span class="btn-text">PLAY OUTTAKES</span><span class="btn-emoji">🎬</span>';
+      }
+    });
+  }
+
+  // Toggle interview truth
+  const interviewBtn = document.getElementById("interviewTruthBtn");
+  const interviewTruth = document.getElementById("interviewTruth");
+
+  if (interviewBtn && interviewTruth) {
+    interviewBtn.addEventListener("click", function () {
+      const isHidden = interviewTruth.style.display !== "block";
+
+      if (isHidden) {
+        interviewTruth.style.display = "block";
+        gsap.from(interviewTruth, {
+          opacity: 0,
+          y: 20,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+        });
+        interviewBtn.innerHTML =
+          '<span class="btn-text">HIDE TRUTH</span><span class="btn-emoji">🤐</span>';
+      } else {
+        interviewTruth.style.display = "none";
+        interviewBtn.innerHTML =
+          '<span class="btn-text">REVEAL THE TRUTH</span><span class="btn-emoji">🤫</span>';
+      }
+    });
+  }
+});
+
+// Season 5 - Hire Me Button
+document.getElementById("hireMeBtn")?.addEventListener("click", function () {
+  const response = document.getElementById("hireResponse");
+  if (response.style.display === "none" || !response.style.display) {
+    response.style.display = "block";
+    gsap.from(response, {
+      opacity: 0,
+      y: 20,
+      duration: 0.5,
+      ease: "back.out(1.7)",
+    });
+    this.querySelector("span").textContent = "🚀 PROCESS INITIATED";
+  } else {
+    response.style.display = "none";
+    this.querySelector("span").textContent = "🚀 LAUNCH HIRE PROCESS";
+  }
+
+  // Create ripple effect
+  const ripple = document.createElement("div");
+  ripple.classList.add("netflix-ripple");
+  this.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 600);
+});
+
+// Skill Meters - Show Meme
+document.querySelectorAll(".reveal-btn").forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const memeContainer =
+      this.closest(".skill-meter").querySelector(".skill-meme");
+    const memeUrl = this.getAttribute("data-meme");
+
+    if (
+      memeContainer.style.display === "none" ||
+      !memeContainer.style.display
+    ) {
+      memeContainer.innerHTML = `
+        <img src="${memeUrl}" alt="Skill meme" class="response-gif">
+        <p>My honest reaction when I ${
+          this.closest(".skill-meter").querySelector("h3").textContent
+        }</p>
+      `;
+      memeContainer.style.display = "block";
+      gsap.from(memeContainer, {
+        opacity: 0,
+        y: 20,
+        duration: 0.5,
+      });
+    } else {
+      memeContainer.style.display = "none";
+    }
+  });
+});
+
+// Confession Reveals
+document.querySelectorAll(".confession-reveal").forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const memeUrl = this.getAttribute("data-meme");
+    const confessionCard = this.closest(".confession-card");
+
+    // Create meme element if it doesn't exist
+    let memeElement = confessionCard.querySelector(".confession-meme");
+    if (!memeElement) {
+      memeElement = document.createElement("div");
+      memeElement.classList.add("confession-meme");
+      confessionCard.appendChild(memeElement);
+    }
+
+    if (memeElement.style.display === "none" || !memeElement.style.display) {
+      memeElement.innerHTML = `
+        <img src="${memeUrl}" alt="Confession meme" class="response-gif">
+      `;
+      memeElement.style.display = "block";
+      gsap.from(memeElement, {
+        opacity: 0,
+        y: 20,
+        duration: 0.5,
+      });
+    } else {
+      memeElement.style.display = "none";
+    }
+  });
+});
+
+// Random Confession Generator
+const confessions = [
+  {
+    text: "Once committed API keys to GitHub. My defense? 'The repo was called HackMePlease'",
+    meta: "📍 Public GitHub ⏰ Right before getting hacked",
+  },
+  {
+    text: "My CSS debugging technique: Randomly change values until it works, then pretend I knew what I was doing",
+    meta: "📍 Chrome DevTools ⏰ 47 minutes into centering a div",
+  },
+  {
+    text: "When recruiters ask about weaknesses, I say 'I work too hard' while my IDE has 47 Stack Overflow tabs open",
+    meta: "📍 Zoom interview ⏰ When they screen share",
+  },
+  {
+    text: "That magical moment when your code works but you have no idea why, so you don't touch it and pray",
+    meta: "📍 My cursed keyboard ⏰ After 6 hours of random changes",
+  },
+  {
+    text: "Tried to explain my GitHub contributions during a power outage. My screen died right as they asked about my 'fix typo' commits",
+    meta: "📍 Important interview ⏰ Worst possible moment",
+  },
+];
+
+document
+  .getElementById("generateConfession")
+  ?.addEventListener("click", function () {
+    const randomConfession =
+      confessions[Math.floor(Math.random() * confessions.length)];
+    const container = document.getElementById("randomConfession");
+
+    container.innerHTML = `
+    <div class="confession-card" style="--hue: ${Math.floor(
+      Math.random() * 360
+    )};">
+      <div class="confession-number">RANDOM</div>
+      <div class="confession-content">
+        <p>"${randomConfession.text}"</p>
+        <div class="confession-meta">
+          <span>${randomConfession.meta}</span>
+        </div>
+      </div>
+    </div>
+  `;
+
+    container.style.display = "block";
+    gsap.from(container, {
+      opacity: 0,
+      y: 20,
+      duration: 0.5,
+    });
+  });
+
+// Add Review Button
+document.getElementById("addReviewBtn")?.addEventListener("click", function () {
+  const form = document.getElementById("reviewForm");
+  if (form.style.display === "none" || !form.style.display) {
+    form.style.display = "block";
+    gsap.from(form, {
+      opacity: 0,
+      y: 20,
+      duration: 0.5,
+    });
+    this.textContent = "✓ THANK YOU";
+  } else {
+    form.style.display = "none";
+    this.textContent = "+ ADD YOUR REVIEW";
+  }
+});
+
+// Animate skill meters on scroll
+gsap.utils.toArray(".meter-fill").forEach((fill) => {
+  gsap.from(fill, {
+    width: 0,
+    scrollTrigger: {
+      trigger: fill,
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+    duration: 1.5,
+    ease: "power2.out",
+  });
+});
+// CONFESSIONS INTERACTIVITY
+document.addEventListener("DOMContentLoaded", function () {
+  // Netflix-style hover effect for confession cards
+  const confessionCards = document.querySelectorAll(".confession-card");
+
+  confessionCards.forEach((card) => {
+    // Add subtle glow on hover
+    card.addEventListener("mouseenter", () => {
+      const severity = card.querySelector(".confession-severity").textContent;
+      let color = "229, 9, 20"; // Default red
+
+      if (severity.includes("🚨")) color = "255, 0, 255"; // Pink for bonus
+      if (severity.includes("🧙")) color = "0, 255, 255"; // Teal for wizardry
+
+      card.style.boxShadow = `0 10px 30px rgba(${color}, 0.3)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.3)";
+    });
+
+    // Add click effect
+    card.addEventListener("mousedown", () => {
+      card.style.transform = "translateY(-5px) scale(0.98)";
+    });
+
+    card.addEventListener("mouseup", () => {
+      card.style.transform = "translateY(-10px)";
+    });
+  });
+
+  // Reaction button functionality
+  const reactionBtns = document.querySelectorAll(".reaction-btn");
+
+  reactionBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const targetId = this.getAttribute("data-target");
+      const targetElement = document.getElementById(targetId);
+      const card = this.closest(".confession-card");
+
+      if (targetElement) {
+        // Toggle display with animation
+        const isHidden =
+          targetElement.style.display === "none" ||
+          !targetElement.style.display;
+
+        if (isHidden) {
+          targetElement.style.display = "block";
+          // Animate in
+          gsap.from(targetElement, {
+            opacity: 0,
+            y: 20,
+            duration: 0.5,
+            ease: "back.out(1.7)",
+          });
+          this.querySelector(".btn-text").textContent = "Hide Reaction";
+
+          // Pulse the card
+          gsap.to(card, {
+            y: -15,
+            duration: 0.3,
+            yoyo: true,
+            repeat: 1,
+          });
+        } else {
+          targetElement.style.display = "none";
+          this.querySelector(".btn-text").textContent =
+            this.getAttribute("data-text") || "Show Reaction";
+        }
+      }
+    });
+  });
+
+  // Random glow effect for cards
+  setInterval(() => {
+    const randomCard =
+      confessionCards[Math.floor(Math.random() * confessionCards.length)];
+    const severity = randomCard.querySelector(
+      ".confession-severity"
+    ).textContent;
+    let color = "229, 9, 20"; // Default red
+
+    if (severity.includes("🚨")) color = "255, 0, 255"; // Pink for bonus
+    if (severity.includes("🧙")) color = "0, 255, 255"; // Teal for wizardry
+
+    gsap.to(randomCard, {
+      boxShadow: `0 0 20px rgba(${color}, 0.5)`,
+      duration: 0.5,
+      yoyo: true,
+      repeat: 1,
+    });
+  }, 3000);
+
+  // Netflix play button effect
+  const playButton = document.querySelector(".netflix-play-button");
+  if (playButton) {
+    playButton.addEventListener("mouseenter", () => {
+      gsap.to(playButton, {
+        scale: 1.05,
+        duration: 0.3,
+      });
+    });
+
+    playButton.addEventListener("mouseleave", () => {
+      gsap.to(playButton, {
+        scale: 1,
+        duration: 0.3,
+      });
+    });
+
+    playButton.addEventListener("click", () => {
+      gsap.to(playButton, {
+        scale: 0.95,
+        duration: 0.2,
+        yoyo: true,
+        repeat: 1,
+      });
+
+      // Simulate loading more content
+      const footer = document.querySelector(".confessions-footer");
+      const loading = document.createElement("div");
+      loading.innerHTML =
+        '<p class="loading-more">Loading more confessions...</p>';
+      footer.insertBefore(loading, playButton);
+
+      setTimeout(() => {
+        loading.remove();
+        alert("Just kidding! You've seen all my dirty secrets... for now.");
+      }, 2000);
+    });
+  }
+});

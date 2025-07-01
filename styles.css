@@ -5744,3 +5744,1906 @@ code, pre, .glitch-text {
     transition: none !important;
   }
 }
+
+/* Update your existing CSS with these mobile-specific adjustments */
+
+/* Creator Section - Mobile Responsiveness */
+@media (max-width: 768px) {
+  .creator-container {
+    padding: 0 1rem;
+  }
+  
+  .creator-card-expanded {
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .creator-profile {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+  }
+  
+  .creator-name {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  
+  .creator-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .creator-bio p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .creator-name {
+    font-size: 1.5rem;
+  }
+  
+  .creator-title {
+    font-size: 0.9rem;
+  }
+  
+  .creator-bio p {
+    font-size: 0.9rem;
+  }
+  
+  .creator-card-expanded {
+    padding: 1rem;
+  }
+}
+
+/* Hero Section Mobile Fixes */
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 1rem 2rem;
+  }
+  
+  .netflix-title {
+    font-size: 2.5rem;
+    white-space: normal;
+    line-height: 1.2;
+    padding: 0;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: var(--netflix-white);
+  }
+  
+  .pulse-text {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mode-selector {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .user-type-selector {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Section Titles Mobile Fix */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+    text-align: center;
+    border-right: none;
+    border-left: none;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Education Timeline Mobile Fix */
+@media (max-width: 768px) {
+  #the-academy .education-timeline::before {
+    left: 25px;
+  }
+  
+  .education-card {
+    padding-left: 3rem;
+  }
+  
+  .education-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Skills Grid Mobile Fix */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+  
+  .skill-category {
+    padding: 1rem;
+  }
+}
+
+/* Projects Grid Mobile Fix */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-item {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Contact Section Mobile Fix */
+@media (max-width: 768px) {
+  .relay-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .relay-info, 
+  .relay-form {
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: var(--netflix-red);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  /* Hide desktop navigation if you have one */
+  .desktop-nav {
+    display: none;
+  }
+}
+
+/* Touch device specific styles */
+.touch-device .project-item {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.touch-device .project-item.touched {
+  transform: scale(0.98);
+}
+
+/* Prevent zoom on input focus */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
+/* Footer mobile adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .back-to-top {
+    width: 100%;
+  }
+}
+
+/* ================== */
+/* SEASON 3: CODE WARS */
+/* ================== */
+.season-3-container {
+  position: relative;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, rgba(20,20,20,0.9) 0%, rgba(40,40,40,0.8) 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2rem 0;
+  border-left: 4px solid var(--netflix-red);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.season-3-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://assets.codepen.io/3364143/code-bg.png') center/cover;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.season-3-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3rem;
+  color: var(--netflix-red);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px rgba(229,9,20,0.5);
+}
+
+.season-3-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--netflix-red);
+  border-radius: 2px;
+}
+
+.season-3-subtitle {
+  text-align: center;
+  font-style: italic;
+  color: var(--netflix-gray);
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+}
+
+.code-war-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 0 2rem;
+}
+
+.code-war-card {
+  background: rgba(30,30,30,0.8);
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-top: 3px solid var(--netflix-red);
+}
+
+.code-war-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(229,9,20,0.1) 0%, transparent 100%);
+  z-index: -1;
+}
+
+.code-war-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(229,9,20,0.3);
+}
+
+.code-war-card h3 {
+  color: var(--netflix-white);
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.code-war-card h3::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: var(--netflix-red);
+}
+
+.code-war-card p {
+  color: var(--netflix-gray);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.code-stats {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.code-stat {
+  background: rgba(229,9,20,0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--netflix-white);
+}
+
+/* ====================== */
+/* SEASON 4: Zentron & I */
+/* ====================== */
+.season-4-container {
+  position: relative;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, rgba(20,20,20,0.9) 0%, rgba(40,40,40,0.8) 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2rem 0;
+  border-left: 4px solid var(--neon-pink);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.season-4-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://assets.codepen.io/3364143/ai-bg.png') center/cover;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.season-4-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3rem;
+  color: var(--neon-pink);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px rgba(255,0,255,0.5);
+}
+
+.season-4-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--neon-pink);
+  border-radius: 2px;
+}
+
+.zentron-episodes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.zentron-episode {
+  background: rgba(30,30,30,0.8);
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-top: 3px solid var(--neon-pink);
+}
+
+.zentron-episode::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,0,255,0.1) 0%, transparent 100%);
+  z-index: -1;
+}
+
+.zentron-episode:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(255,0,255,0.3);
+}
+
+.episode-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.episode-title {
+  color: var(--neon-pink);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.episode-stats {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.episode-stat {
+  background: rgba(255,0,255,0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--netflix-white);
+}
+
+.zentron-dialogue {
+  background: rgba(255,0,255,0.1);
+  border-left: 3px solid var(--neon-pink);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+}
+
+.zentron-dialogue::before {
+  content: "Zentron:";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: var(--netflix-dark);
+  padding: 0 0.5rem;
+  color: var(--neon-pink);
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.zentron-meme {
+  margin: 1rem auto;
+  display: block;
+  max-width: 250px;
+  border-radius: 8px;
+  border: 2px solid var(--neon-pink);
+  box-shadow: 0 0 15px rgba(255,0,255,0.3);
+  transition: transform 0.3s ease;
+}
+
+.zentron-meme:hover {
+  transform: scale(1.05);
+}
+
+.zentron-reaction {
+  font-style: italic;
+  color: var(--netflix-gray);
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+/* Interactive elements */
+.interactive-highlight {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.interactive-highlight:hover {
+  color: var(--netflix-red);
+}
+
+.interactive-highlight::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--netflix-red);
+  transition: width 0.3s ease;
+}
+
+.interactive-highlight:hover::after {
+  width: 100%;
+}
+
+/* Netflix-style hover effects */
+.netflix-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.netflix-hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.netflix-hover:hover::after {
+  left: 100%;
+}
+
+/* Animation classes */
+@keyframes netflixIntro {
+  0% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.netflix-intro {
+  animation: netflixIntro 0.8s ease-out forwards;
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 15px currentColor;
+  }
+}
+
+.text-glow {
+  animation: textGlow 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .season-3-title, .season-4-title {
+    font-size: 2.2rem;
+  }
+  
+  .code-war-cards, .zentron-episodes {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .episode-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Reaction Button Styles */
+.reaction-container {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.reaction-btn {
+  background: rgba(229, 9, 20, 0.2);
+  border: 1px solid var(--netflix-red);
+  color: var(--netflix-white);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: "Netflix Sans", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.reaction-btn:hover {
+  background: rgba(229, 9, 20, 0.4);
+  transform: translateY(-2px);
+}
+
+.reaction-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.reaction-btn:hover::after {
+  left: 100%;
+}
+
+.hidden-meme {
+  display: none;
+  margin-top: 1rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ==================== */
+/* SEASON CONTAINER STYLES */
+/* ==================== */
+.season-container {
+  position: relative;
+  padding: 3rem 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  background: linear-gradient(135deg, rgba(20,20,20,0.95) 0%, rgba(30,30,30,0.9) 100%);
+  border-radius: 12px;
+  border-left: 4px solid var(--netflix-red);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+.season-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(229,9,20,0.05)" stroke-width="1"/></svg>');
+  background-size: 50px 50px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.season-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3rem;
+  color: var(--netflix-red);
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: 3px;
+  position: relative;
+}
+
+.season-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+.season-subtitle {
+  text-align: center;
+  font-style: italic;
+  color: var(--netflix-gray);
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+}
+
+/* ==================== */
+/* EPISODE CARD STYLES */
+/* ==================== */
+.episode-card {
+  background: rgba(40,40,40,0.8);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-top: 3px solid var(--netflix-red);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.episode-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(229,9,20,0.3);
+}
+
+.episode-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(229,9,20,0.1) 0%, transparent 100%);
+  z-index: -1;
+}
+
+.episode-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(229,9,20,0.3);
+}
+
+.episode-title {
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  color: var(--netflix-white);
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.episode-stats {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-bubble {
+  background: rgba(229,9,20,0.2);
+  color: var(--netflix-white);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-family: "Netflix Sans", sans-serif;
+}
+
+.blunder-list {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.blunder-list li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  list-style-type: none;
+}
+
+.blunder-list li::before {
+  content: "💥";
+  position: absolute;
+  left: -1.5rem;
+}
+
+.episode-review {
+  font-style: italic;
+  color: var(--netflix-gray);
+  border-left: 2px solid var(--netflix-red);
+  padding-left: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* ==================== */
+/* BONUS FEATURES STYLES */
+/* ==================== */
+.bonus-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.bonus-card {
+  background: rgba(40,40,40,0.8);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-top: 3px solid var(--neon-purple);
+  transition: all 0.3s ease;
+}
+
+.bonus-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(157,0,255,0.3);
+}
+
+.bonus-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(157,0,255,0.1) 0%, transparent 100%);
+  z-index: -1;
+}
+
+.bonus-title {
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  color: var(--netflix-white);
+  margin: 0 0 1rem;
+  font-size: 1.3rem;
+}
+
+.bonus-stats {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+/* ==================== */
+/* INTERACTIVE ELEMENTS */
+/* ==================== */
+.hidden-reaction, 
+.hidden-content {
+  display: none;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.reaction-btn {
+  background: transparent;
+  border: none;
+  color: var(--netflix-red);
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline;
+  text-decoration: underline;
+}
+
+.reaction-btn:hover {
+  color: var(--netflix-white);
+  text-shadow: 0 0 10px var(--netflix-red);
+}
+
+.savage-btn {
+  background: linear-gradient(to right, var(--netflix-red), var(--netflix-red-dark));
+  border: none;
+  color: var(--netflix-white);
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.savage-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(229,9,20,0.5);
+}
+
+.savage-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.savage-btn:hover::after {
+  left: 100%;
+}
+
+.thought-bubble {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  color: var(--netflix-gray);
+  font-style: italic;
+}
+
+/* ==================== */
+/* ANIMATIONS */
+/* ==================== */
+.netflix-intro {
+  animation: netflixIntro 0.8s ease-out forwards;
+}
+
+@keyframes netflixIntro {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.text-glow {
+  animation: textGlow 2s infinite alternate;
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 5px currentColor;
+  }
+  100% {
+    text-shadow: 0 0 15px currentColor, 0 0 30px rgba(229,9,20,0.5);
+  }
+}
+
+.netflix-hover {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.netflix-hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s;
+}
+
+.netflix-hover:hover::after {
+  left: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== */
+/* RESPONSIVE ADJUSTMENTS */
+/* ==================== */
+@media (max-width: 768px) {
+  .season-container {
+    padding: 2rem 1rem;
+    margin: 2rem 1rem;
+  }
+  
+  .season-title {
+    font-size: 2.2rem;
+  }
+  
+  .episode-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .bonus-features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .season-title {
+    font-size: 1.8rem;
+  }
+  
+  .episode-title {
+    font-size: 1.3rem;
+  }
+  
+  .stat-bubble {
+    font-size: 0.7rem;
+  }
+}
+
+/* SEASON CONTAINERS */
+.season-container {
+  background: linear-gradient(135deg, rgba(20,20,20,0.9) 0%, rgba(40,40,40,0.8) 100%);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  border-left: 4px solid var(--netflix-red);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.season-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://assets.codepen.io/3364143/code-bg.png') center/cover;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* SEASON HEADERS */
+.season-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.season-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3rem;
+  color: var(--netflix-red);
+  margin-bottom: 0.5rem;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px rgba(229,9,20,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.season-number {
+  font-size: 1.2rem;
+  color: var(--netflix-gray);
+  margin-bottom: 0.5rem;
+  letter-spacing: 5px;
+}
+
+.season-subtitle {
+  font-size: 1.2rem;
+  color: var(--netflix-gray);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.season-tagline {
+  font-style: italic;
+  color: var(--netflix-gray);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* EPISODE CARDS */
+.episode-card {
+  background: rgba(30,30,30,0.8);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.episode-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(229,9,20,0.3);
+}
+
+.episode-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.episode-title {
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  color: var(--netflix-white);
+  font-size: 1.8rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.episode-number {
+  background: var(--netflix-red);
+  color: var(--netflix-white);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.episode-runtime {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--netflix-gray);
+  font-size: 0.9rem;
+}
+
+.runtime-icon {
+  font-size: 1.2rem;
+}
+
+/* STAT PILLS */
+.episode-stats {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.stat-pill {
+  background: rgba(229,9,20,0.2);
+  color: var(--netflix-white);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.stat-pill:hover {
+  background: rgba(229,9,20,0.4);
+  transform: scale(1.05);
+}
+
+.stat-icon {
+  font-size: 1.1rem;
+}
+
+/* EPISODE CONTENT */
+.episode-content {
+  color: var(--netflix-white);
+  line-height: 1.6;
+}
+
+.blunder-list {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.blunder-list li {
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.blunder-list li::before {
+  content: "💥";
+  position: absolute;
+  left: -1.5rem;
+}
+
+/* CRITIC REVIEW */
+.critic-review {
+  background: rgba(20,20,20,0.7);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-left: 3px solid var(--netflix-red);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.review-label {
+  font-weight: bold;
+  color: var(--netflix-white);
+}
+
+.review-rating {
+  color: gold;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+}
+
+.review-text {
+  font-style: italic;
+  color: var(--netflix-gray);
+  margin-bottom: 1.5rem;
+}
+
+/* BONUS FEATURES */
+.bonus-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.bonus-card {
+  background: rgba(30,30,30,0.8);
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-top: 3px solid var(--neon-purple);
+}
+
+.bonus-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(157,0,255,0.3);
+}
+
+.feature-title {
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  color: var(--neon-purple);
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.feature-subtitle {
+  font-style: italic;
+  color: var(--netflix-gray);
+  margin-bottom: 1.5rem;
+}
+
+.feature-stats {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.content-warning, .explicit-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--netflix-gray);
+}
+
+.warning-icon {
+  color: var(--netflix-red);
+}
+
+/* HIDDEN CONTENT */
+.hidden-content {
+  display: none;
+  margin-top: 1.5rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* THOUGHT BUBBLES */
+.thought-bubble {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: var(--netflix-gray);
+  margin: 0 0.2rem;
+}
+
+/* NETFLIX INTRO ANIMATION */
+.netflix-intro {
+  animation: netflixIntro 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+}
+
+@keyframes netflixIntro {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+  .season-title {
+    font-size: 2.2rem;
+  }
+  
+  .episode-title {
+    font-size: 1.5rem;
+  }
+  
+  .bonus-features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .season-container {
+    padding: 2rem 1rem;
+  }
+  
+  .season-title {
+    font-size: 1.8rem;
+  }
+  
+  .episode-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* SEASON 5 STYLES */
+.netflix-season {
+  padding: 4rem 2rem;
+  position: relative;
+  background: var(--netflix-dark);
+  border-bottom: 4px solid var(--netflix-red);
+}
+
+.season-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.season-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.5rem;
+  color: var(--netflix-white);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+}
+
+.season-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--netflix-red);
+}
+
+.season-subtitle {
+  color: var(--netflix-gray);
+  font-style: italic;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.netflix-badge {
+  position: absolute;
+  top: -15px;
+  right: 20px;
+  background: var(--netflix-red);
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transform: rotate(5deg);
+}
+
+/* Episode card */
+.netflix-card {
+  background: rgba(30, 30, 30, 0.8);
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.netflix-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(229, 9, 20, 0.1) 0%,
+    transparent 100%
+  );
+}
+
+.episode-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.episode-number {
+  background: var(--netflix-red);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.episode-title {
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  color: var(--netflix-white);
+  margin: 0;
+}
+
+/* Selling points */
+.selling-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.point {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.point-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.point-content h4 {
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  color: var(--netflix-white);
+  margin: 0 0 0.3rem;
+}
+
+.point-content p {
+  color: var(--netflix-gray);
+  font-size: 0.9rem;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Netflix button styles */
+.netflix-btn {
+  background: var(--netflix-red);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.netflix-btn:hover {
+  background: var(--netflix-red-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+}
+
+.netflix-btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.netflix-btn-lg {
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+}
+
+.netflix-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.hidden-response {
+  display: none;
+  margin-top: 1rem;
+  text-align: center;
+  animation: fadeIn 0.5s;
+}
+
+.response-gif {
+  max-width: 250px;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+/* Legend facts */
+.legend-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.fact-card {
+  background: rgba(30, 30, 30, 0.8);
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.fact-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: hsl(var(--hue), 100%, 50%);
+}
+
+.fact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.fact-number {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  color: hsl(var(--hue), 100%, 50%);
+  margin-bottom: 0.5rem;
+}
+
+.fact-content h4 {
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  color: var(--netflix-white);
+  margin: 0 0 0.5rem;
+}
+
+.fact-content p {
+  color: var(--netflix-gray);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* SKILLS SECTION */
+.skills-section {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8)
+  );
+}
+
+.skill-meter-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skill-meter {
+  margin-bottom: 2rem;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.skill-header h3 {
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  color: var(--netflix-white);
+  margin: 0;
+}
+
+.skill-tag {
+  font-size: 0.8rem;
+  background: rgba(229, 9, 20, 0.2);
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  margin-left: 0.5rem;
+}
+
+.meter-bar {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.meter-fill {
+  height: 100%;
+  border-radius: 5px;
+  background: linear-gradient(
+    90deg,
+    var(--netflix-red),
+    #ff6b6b
+  );
+  position: relative;
+  transition: width 1.5s ease-out;
+}
+
+.meter-text {
+  position: absolute;
+  right: 5px;
+  top: -25px;
+  font-size: 0.8rem;
+  color: var(--netflix-white);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+}
+
+.skill-meme {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.skill-disclaimer {
+  text-align: center;
+  font-style: italic;
+  color: var(--netflix-gray);
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* CONFESSIONS SECTION */
+.confessions-section {
+  background: linear-gradient(
+    rgba(20, 20, 20, 0.9),
+    rgba(20, 20, 20, 0.9)
+  );
+}
+
+.confession-carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.confession-card {
+  background: rgba(30, 30, 30, 0.8);
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.confession-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: hsl(var(--hue), 100%, 50%);
+}
+
+.confession-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.confession-number {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  color: hsl(var(--hue), 100%, 50%);
+  margin-bottom: 0.5rem;
+}
+
+.confession-content p {
+  font-family: "Netflix Sans", sans-serif;
+  color: var(--netflix-white);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.confession-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--netflix-gray);
+  margin-bottom: 1rem;
+}
+
+.confession-reveal {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.confession-generator {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* REVIEWS SECTION */
+.ratings-section {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8)
+  );
+}
+
+.review-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.review-card {
+  background: rgba(30, 30, 30, 0.8);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.highlight-card {
+  border: 2px solid gold;
+  position: relative;
+}
+
+.highlight-card::after {
+  content: "HIGHLIGHT";
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: gold;
+  color: black;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.reviewer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.reviewer-name {
+  font-family: "Netflix Sans", sans-serif;
+  font-weight: 700;
+  color: var(--netflix-white);
+  margin-right: auto;
+}
+
+.review-rating {
+  color: gold;
+  letter-spacing: 2px;
+}
+
+.review-content p {
+  font-family: "Netflix Sans", sans-serif;
+  color: var(--netflix-white);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.review-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--netflix-gray);
+}
+
+.netflix-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .season-title {
+    font-size: 2rem;
+  }
+  
+  .season-subtitle {
+    font-size: 1rem;
+  }
+  
+  .selling-points {
+    grid-template-columns: 1fr;
+  }
+  
+  .legend-facts {
+    grid-template-columns: 1fr;
+  }
+  
+  .confession-carousel,
+  .review-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
